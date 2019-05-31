@@ -2,8 +2,6 @@ firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
 
-
-    //window.alert(user.uid);
     document.getElementById("user_div").style.display = "block";
     document.getElementById("login_div").style.display = "none";
 

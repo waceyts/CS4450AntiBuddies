@@ -8,19 +8,29 @@ body {
 h3 {
   color: #421663;
 }
+a {
+  text-decoration: none
+}
 
 input, button {
   font-family: "segoe-ui", "open-sans", tahoma, arial;
   font-weight: 700;
 }
 
+image {
+  width: 150px;
+   margin-left: auto;
+  margin-right: auto;
+  display: block;
+
+}
+
 p {
-  color: #421663;
+  color: #000000;
 
 }
 
 button {
-  background-color: #43964D; /* Green */
   border: none;
   color: white;
   padding: 15px 32px;
@@ -35,6 +45,7 @@ button {
   margin-top: 150px;
   padding: 20px;
   display: none;
+
 }
 
 .main-div input {
@@ -56,9 +67,8 @@ button {
 }
 
 .main-div button, .loggedin-div button {
-  background: #5d8ffc;
+  background: #421663;
   color: #fff;
-  border: 1px solid #5d8ffc;
   border-radius: 5px;
   padding: 15px;
   display: block;
@@ -70,7 +80,67 @@ button {
 
 .main-div button:hover, .loggedin-div button:hover {
   background: #fff;
-  color: #5d8ffc;
-  border: 1px solid #5d8ffc;
+  color: #421663;
   cursor: pointer;
 }
+
+.nav{
+        padding: 10px 0px;
+      }
+
+         .main-menu>li{
+          display: inline-block;
+          width: 150px;
+          padding: 10px 0px;
+          margin-left: 10px;
+          text-align: center;
+          color: white;
+          font-size: 20px;
+          border-left: 1px solid white;
+          transition: .4s;
+          cursor: pointer;
+          box-sizing: border-box;
+
+         }
+         
+         .main-menu li:hover .sub-menu{
+              display: block;
+         }
+ 
+         .sub-menu{
+          display: none;
+          position: absolute;
+          padding: 0px;
+          margin-top: 30px;
+          margin-left: -10px; 
+          float: left;
+          width: 300px; 
+          text-align: left;
+          box-sizing: border-box;
+          border: 5px solid white;
+          box-shadow: 1px 1px 1px grey;
+          
+       
+         }
+
+         .sub-menu:before{
+                 content:"";
+                 width: 0px;
+                 height:0px;
+                 border-left:20px solid transparent;
+                 border-right:20px solid transparent;
+                 border-bottom:30px solid white;
+                 position: absolute;
+                 margin:-30px 0px 0px 60px;
+         }
+
+         .sub-menu li{
+          list-style-type: none;
+          padding: 10px;
+          color: #000000;
+          font-size: 20px;
+          background: #421663;
+         }
+     .main-menu>li:hover, .sub-menu>li:hover{
+          background: #43964D;
+         }
