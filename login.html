@@ -21,18 +21,26 @@
 <body>
 
   <div id="login_div" class="main-div">
-    <h3>AntiBuddies Login</h3>
-    <input type="email" placeholder="Wildcat Email..." id="email_field" />
-    <input type="password" placeholder="Password..." id="password_field" />
+    <img src="wsulogo.png" alt="Italian Trulli">
+    <div>
+    <p>Username<input type="email" id="email_field" /></p>
+    <p>Password<input type="password" id="password_field" /></p>
 
-    <button onclick="login()">Login to Account</button>
+    <button onclick="login()">Login</button>
   </div>
-
+  <div>
+    <p>Not yet a Member?</p>
+<p>Create a new user</p>
+<button onclick="">Create User</button>
+  </div>
+</div>
   <div id="user_div" class="loggedin-div">
     <h3>Welcome User</h3>
     <p id="user_para">Welcome to AntiBuddies!</p>
     <button onclick="logout()">Logout</button>
   </div>
+  
+
 
 
 
