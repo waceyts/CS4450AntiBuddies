@@ -11,7 +11,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
       var email_id = user.email;
       document.getElementById("user_para").innerHTML = "Welcome User : " + email_id;
-
+      window.location.href("C:/Users/Rachel/Documents/CS4450/project/AntiBuddies-/home.html")
     }
 
   } else {

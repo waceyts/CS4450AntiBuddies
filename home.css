@@ -1,0 +1,35 @@
+body {
+    background: #929292;
+    padding: 0px;
+    margin: 0px;
+    font-family: "segoe-ui", "open-sans", tahoma, arial;
+    font-size: 16px;
+  }
+
+  .levels_btns {
+      width: 80%;
+      background-color: #ffff;
+      padding: 20px;
+  }
+
+  .row_btns {
+    background-color: #353535;
+    width: 82%;
+    padding: 50px;
+    text-align: center;
+    border-radius: 10px;
+    margin-left: 0px !important;
+  }
+
+  .cont {
+    background-color: #414141;
+  }
+
+  .user-stats-row {
+    padding: 2%;
+    padding-bottom: 3%;
+  }
+
+  .welcome-user-row {
+    padding: 5%;
+  }
