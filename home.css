@@ -10,6 +10,7 @@ body {
       width: 80%;
       background-color: #ffff;
       padding: 20px;
+      font-weight: bold;
   }
 
   .row_btns {
@@ -21,13 +22,39 @@ body {
     margin-left: 0px !important;
   }
 
+  .stat_numbers {
+    font-weight: bold;
+    font-size: 40px;
+    padding-right: 5px;
+  }
+
+  .beginner {
+    color: #43694D;
+  }
+
+  .intermediate {
+    color: #DFA801; 
+  }
+
+  .advanced {
+    color: #421663;  
+  }
+
+  .stats {
+      display: inline-block;
+  }
+
+  .stat_txt {
+    color: white;
+    font-weight: bold;
+  }
+
   .cont {
     background-color: #414141;
   }
 
   .user-stats-row {
     padding: 2%;
-    padding-bottom: 3%;
   }
 
   .welcome-user-row {
