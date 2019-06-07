@@ -1,3 +1,14 @@
+ var config = {
+      apiKey: "AIzaSyA9S8PIArbHxiZGfV7EXsfxMLeEVaxPG7g",
+      authDomain: "antibuddies-1019a.firebaseapp.com",
+      databaseURL: "https://antibuddies-1019a.firebaseio.com",
+      projectId: "antibuddies-1019a",
+      storageBucket: "antibuddies-1019a.appspot.com",
+      messagingSenderId: "533152371568",
+      appId: "1:533152371568:web:24876187a15d6c91"
+    };
+      firebase.initializeApp(config); 
+
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     // User is signed in.
@@ -11,7 +22,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
       var email_id = user.email;
       document.getElementById("user_para").innerHTML = "Welcome User : " + email_id;
-      window.location.href("C:/Users/Rachel/Documents/CS4450/project/AntiBuddies-/home.html")
+      //window.location.href("C:/Users/Rachel/Documents/CS4450/project/AntiBuddies-/home.html")
     }
 
   } else {
@@ -50,14 +61,11 @@ function newUser(){
 
   /*var userEmail = document.getElementById("email_field").value;
   var userPass = document.getElementById("password_field").value;
-
   firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
-
     window.alert("Error : " + errorMessage);
-
     // ...
   });*/
 
@@ -70,6 +78,3 @@ function logout(){
 function newUserlogout(){
   firebase.auth().signOut();
 }
-
-
-
