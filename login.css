@@ -88,6 +88,12 @@ button {
   cursor: pointer;
 }
 
+.modal-footer-close button:hover {
+  background: tomato;
+  color: #fff;
+  cursor: pointer;
+}
+
 .nav{
         padding: 10px 0px;
       }

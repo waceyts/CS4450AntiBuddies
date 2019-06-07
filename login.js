@@ -75,6 +75,22 @@ function logout(){
   firebase.auth().signOut();
 }
 
-function newUserlogout(){
-  firebase.auth().signOut();
+function newUserlogin(){
+  //window.alert(user.uid)
+  var userFirst = document.getElementById("firstname").value;
+  var userLast = document.getElementById("lastname").value;
+  var userEmail = document.getElementById("email").value;
+  var userPass = document.getElementById("password").value;
+
+
+  firebase.auth().signInWithEmailAndPassword(userFirst, userLast, userEmail, userPass).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+
+    window.alert("Error : " + errorMessage);
+
+    // ...
+  });
+
 }
