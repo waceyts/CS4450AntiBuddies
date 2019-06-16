@@ -1,25 +1,25 @@
-[debug] [2019-06-03T04:34:54.644Z] ----------------------------------------------------------------------
-[debug] [2019-06-03T04:34:54.648Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Rachel\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
-[debug] [2019-06-03T04:34:54.648Z] CLI Version:   6.10.0
-[debug] [2019-06-03T04:34:54.648Z] Platform:      win32
-[debug] [2019-06-03T04:34:54.648Z] Node Version:  v10.15.3
-[debug] [2019-06-03T04:34:54.650Z] Time:          Sun Jun 02 2019 22:34:54 GMT-0600 (Mountain Daylight Time)
-[debug] [2019-06-03T04:34:54.650Z] ----------------------------------------------------------------------
+[debug] [2019-06-16T18:30:39.049Z] ----------------------------------------------------------------------
+[debug] [2019-06-16T18:30:39.052Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Rachel\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve
+[debug] [2019-06-16T18:30:39.052Z] CLI Version:   6.10.0
+[debug] [2019-06-16T18:30:39.052Z] Platform:      win32
+[debug] [2019-06-16T18:30:39.052Z] Node Version:  v10.15.3
+[debug] [2019-06-16T18:30:39.053Z] Time:          Sun Jun 16 2019 12:30:39 GMT-0600 (Mountain Daylight Time)
+[debug] [2019-06-16T18:30:39.053Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2019-06-03T04:34:54.662Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2019-06-03T04:34:54.662Z] > authorizing via signed-in user
-[debug] [2019-06-03T04:34:54.662Z] [iam] checking project antibuddies-274a7 for permissions ["firebase.projects.get"]
-[debug] [2019-06-03T04:34:54.665Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/antibuddies-274a7:testIamPermissions  
+[debug] [2019-06-16T18:30:39.066Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-06-16T18:30:39.067Z] > authorizing via signed-in user
+[debug] [2019-06-16T18:30:39.067Z] [iam] checking project antibuddies-274a7 for permissions ["firebase.projects.get"]
+[debug] [2019-06-16T18:30:39.069Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/antibuddies-274a7:testIamPermissions  
 
-[debug] [2019-06-03T04:34:55.059Z] <<< HTTP RESPONSE 200
-[debug] [2019-06-03T04:34:55.062Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/antibuddies-274a7  
+[debug] [2019-06-16T18:30:39.453Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-16T18:30:39.457Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/antibuddies-274a7  
  
-[debug] [2019-06-03T04:34:55.354Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-16T18:30:39.745Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Serving from 'C:\Users\Rachel\Documents\CS4450'...
 [info] 
-[debug] [2019-06-03T04:34:55.365Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/381052059704/clients/_:getWebAppConfig  
+[debug] [2019-06-16T18:30:39.748Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/381052059704/clients/_:getWebAppConfig  
  
-[debug] [2019-06-03T04:34:55.829Z] <<< HTTP RESPONSE 200
+[debug] [2019-06-16T18:30:40.096Z] <<< HTTP RESPONSE 200
 [info] i  hosting: Serving hosting files from: public
 [info] +  hosting: Local server: http://localhost:5000
