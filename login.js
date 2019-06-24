@@ -50,7 +50,7 @@ function login(){
     // ...
   });
 
- var url = "https://us-central1-antibuddies-274a7.cloudfunctions.net/getUserWithEmail";
+var url = "https://us-central1-antibuddies-274a7.cloudfunctions.net/getUserWithEmail";
 var method = "POST";
 var postData = { "email":"ssmith@gmail.com"};
 
@@ -87,8 +87,6 @@ request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 // Actually sends the request to the server.
 request.send(postData);
 
-
-
 }
 
 function newUser(){
@@ -116,6 +114,10 @@ function home(){
 
 function logout(){
   firebase.auth().signOut();
+}
+
+function newPanel(){
+  window.location.href="admin-grid.html";
 }
 
 function newUserlogin(){

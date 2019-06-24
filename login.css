@@ -92,7 +92,7 @@ height: auto;
   background: #282828;
 }
 
-.main-div button, .loggedin-div button, .newloggedin-div button, .modal-dialog button {
+.main-div button, .loggedin-div button, .newloggedin-div button, .modal-dialog button, .outer button {
   background: #421663;
   color: #fff;
   border-radius: 5px;
@@ -104,7 +104,7 @@ height: auto;
   -moz-transition: 0.3s;
 }
 
-.main-div button:hover, .loggedin-div button:hover, .newloggedin-div button:hover, .modal-dialog button:hover {
+.main-div button:hover, .loggedin-div button:hover, .newloggedin-div button:hover, .modal-dialog button:hover, .outer button:hover {
   background: #43964D;
   color: #fff;
   cursor: pointer;
@@ -197,4 +197,15 @@ height: auto;
 .right{
   float: right;
   width: 47.5%;
+}
+
+#outer
+{
+    width:100%;
+    text-align: center;
+}
+.inner
+{
+    display: inline-block;
+    padding: 10px;
 }

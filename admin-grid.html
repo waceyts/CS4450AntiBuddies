@@ -53,50 +53,22 @@
 				<th id="subtitle">AHG</th>
 				<th id="subtitle">CC</th>
 			</tr>
+      <tr>
+        <td colspan="24">AC</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
 		</thead>
 		<tbody>
-			<tr>
-				<th>'.$no.'</th>
-				<td>'.$row['D'].'</td>
-				<td>'.$row['C'].'</td>
-				<td>'.$row['c'].'</td>
-				<td>'.$row['E'].'</td>
-				<td>'.$row['e'].'</td>
-				<td>'.$row['f'].'</td>
-				<td>'.$row['K'].'</td>
-				<td>'.$row['k'].'</td>
-				<td>'.$row['Kpb'].'</td>
-				<td>'.$row['Jsb'].'</td>
-				<td>'.$row['Fya'].'</td>
-				<td>'.$row['Fyb'].'</td>
-				<td>'.$row['Jka'].'</td>
-				<td>'.$row['Jkb'].'</td>
-				<td>'.$row['Lea'].'</td>
-				<td>'.$row['Leb'].'</td>
-				<td>'.$row['P1'].'</td>
-				<td>'.$row['M'].'</td>
-				<td>'.$row['N'].'</td>
-				<td>'.$row['S'].'</td>
-				<td>'.$row['s'].'</td>
-				<td>'.$row['Lub'].'</td>
-				<td>'.$row['Xga'].'</td>
-				<td>'.$row['IS'].'</td>
-				<td>'.$row['37'].'</td>
-				<td>'.$row['AHG'].'</td>
-				<td>'.$row['CC'].'</td>
-			</tr>
+			
 		</tbody>
 		<tfoot>
-			<tr>
-				<td colspan="24">AC</td>
-				<td>'.$row['IS'].'</td>
-				<td>'.$row['37'].'</td>
-				<td>'.$row['AHG'].'</td>
-				<td>'.$row['CC'].'</td>
-			</tr>
+			
 		</tfoot>
 	</table>
-
+    <div id="outer" class="table-input">
 			# :<input type="text" name="#" id="#">
 			D :<input type="text" name="D" id="D">
 			C :<input type="text" name="C" id="C">
@@ -125,11 +97,12 @@
 			37 :<input type="text" name="37" id="37">
 			AHG :<input type="text" name="AHG" id="AHG">
 			CC :<input type="text" name="CC" id="CC">
-
-			<button onclick="addHtmlTableRow();">Add</button>
-			<button onclick="editHtmlTbleSelectedRow();">Edit</button>
-			<button onclick="removeSelectedRow();">Remove</button>
-
+    </div>
+    <div id="outer">
+			<div class="inner"><button class="button add"; onclick="addHtmlTableRow();">Add</button></div>
+			<div class="inner"><button class="button edit"; onclick="editHtmlTbleSelectedRow();">Edit</button></div>
+      <div class="inner"><button class="button remove"; onclick="removeSelectedRow();">Remove</button></div>
+    </div>
 
 	<script>
 
@@ -180,7 +153,8 @@
                 // get value from input text
                 // set the values into row cell's
                 if(!checkEmptyInput()){
-                	var newRow = table.insertRow(table.length),
+                  var table = document.getElementsByTagName('table')[0];
+                	var newRow = table.insertRow(table.rows.length/2+1);
                 	cell1 = newRow.insertCell(0),
                 	cell2 = newRow.insertCell(1),
                 	cell3 = newRow.insertCell(2),
