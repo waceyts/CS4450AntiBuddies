@@ -18,7 +18,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
     var user = firebase.auth().currentUser;
 
-    if(user != null) {
+    if(user != null){
 
       var email_id = user.email;
       document.getElementById("user_para").innerHTML = "User Email : " + email_id;
@@ -28,8 +28,8 @@ firebase.auth().onAuthStateChanged(function(user) {
   } else {
     // No user is signed in.
 
-    //document.getElementById("user_div").style.display = "none";
-    // document.getElementById("login_div").style.display = "block";
+    document.getElementById("user_div").style.display = "none";
+    document.getElementById("login_div").style.display = "block";
 
   }
 });
@@ -52,9 +52,7 @@ function login(){
 
 var url = "https://us-central1-antibuddies-274a7.cloudfunctions.net/getUserWithEmail";
 var method = "POST";
-var postData = { "email": "jonny@hotmail.com", 
-                  "fname": "Jonni",
-                  "lname": "Rocket" };
+var postData = { "email":"ssmith@gmail.com"};
 
 // You REALLY want shouldBeAsync = true.
 // Otherwise, it'll block ALL execution waiting for server response.
@@ -89,8 +87,6 @@ request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 // Actually sends the request to the server.
 request.send(postData);
 
-
-
 }
 
 function newUser(){
@@ -118,6 +114,10 @@ function home(){
 
 function logout(){
   firebase.auth().signOut();
+}
+
+function newPanel(){
+  window.location.href="admin-grid.html";
 }
 
 function newUserlogin(){
