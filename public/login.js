@@ -25,13 +25,13 @@ firebase.auth().onAuthStateChanged(function(user) {
     
     }
 
-  } else {
+  } //else {
     // No user is signed in.
 
-    document.getElementById("user_div").style.display = "none";
-    document.getElementById("login_div").style.display = "block";
+    //document.getElementById("user_div").style.display = "none";
+    //document.getElementById("login_div").style.display = "block";
 
-  }
+  //}
 });
 
 function login(){
