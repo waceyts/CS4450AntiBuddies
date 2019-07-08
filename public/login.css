@@ -54,7 +54,7 @@ button {
   margin: 0px auto;
   /* margin-top: 150px; */
   padding: 20px;
-  display: none;
+  /*display: none; This is causing the main page not to show for me; not sure if it's supposed to be here*/
 }
 
 .loggedin-div {

@@ -22,7 +22,8 @@
      </head>
   <body>
     <h1>Department of Medical Labratory Sciences</h1>
-      <div id="login_div" role="dialog" class="main-div">
+    <!--main_div is login form-->
+      <div id="login_form" role="dialog" class="main-div">
         <img src="wsulogo.png" alt="Italian Trulli" id="wsuloginlogo">
           <span>Username<input type="email" id="email_field" /></span>
           <span>Password<input type="password" id="password_field" /></span>
@@ -34,7 +35,8 @@
       <button data-toggle="modal" data-target="#newuser_div">Create User</button>
     </div>
 
-    <div id="user_div" class="loggedin-div">
+    <!-- user_div is user is logged in -->
+    <div class="loggedin-div" id="user_div">
       <h3>Welcome User</h3>
       <span id="user_para">Welcome to AntiBuddies!</span>
         <div class="user_div_button">
@@ -43,6 +45,7 @@
         </div>
     </div>
 
+    <!-- newuser_div is create new user form -->
     <div class="modal fade" id="newuser_div" role="dialog">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -73,5 +76,6 @@
         </div>
       </div>   
     </div>
+
   </body>
 </html>
