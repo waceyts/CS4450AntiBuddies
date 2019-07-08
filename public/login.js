@@ -108,7 +108,7 @@ function login(){
     // ...
   });*/
 
-//}
+}
 
 function home(){
   window.location.href="home.html";
@@ -140,5 +140,4 @@ function newUserlogin(){
     // ...
   });
 
-}
 }
