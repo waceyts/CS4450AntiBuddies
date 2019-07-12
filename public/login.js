@@ -1,4 +1,4 @@
- var config = {
+  var config = {
       apiKey: "AIzaSyDYRTle8vQqNZDCL_wx2HZflZfMf_k2dBk",
       authDomain: "antibuddies-1019a.firebaseapp.com",
       databaseURL: "https://antibuddies-1019a.firebaseio.com",
@@ -52,10 +52,21 @@ function login(){
   });
 
 //START OF POST REQUEST
-// var url = "https://us-central1-antibuddies-274a7.cloudfunctions.net/getUserWithEmail";
-// var method = "POST";
-// var postData = { "email":"ssmith@gmail.com"};
+var url = "https://antibuddies-274a7.web.app/index.html";
+var data = { "email":"ssmith@gmail.com"};
 
+var xhr = new XMLHttpRequest();
+xhr.responseType = "json"; // xhr.response will be parsed into a JSON object
+xhr.open('GET', "https://antibuddies-274a7.web.app/index.html", true);
+xhr.send();
+ 
+xhr.onreadystatechange = processRequest;
+ 
+function processRequest(e) {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        alert(xhr.response.ip); // no parsing needed
+    }
+}
 // You REALLY want shouldBeAsync = true.
 // Otherwise, it'll block ALL execution waiting for server response.
 // var shouldBeAsync = true;
@@ -68,6 +79,26 @@ function login(){
 // This function attached to the XMLHttpRequest "onload" property specifies how
 // the HTTP response will be handled. 
 //request.onload = function () {
+
+//   getText = function(url, callback) // How can I use this callback?
+// {
+//     var request = new XMLHttpRequest();
+//     request.onreadystatechange = function()
+//     {
+//         if (request.readyState == 4 && request.status == 200)
+//         {
+//             callback(request.responseText); // Another callback here
+//         }
+//     }; 
+//     request.open('GET', url);
+//     request.send();
+// }
+
+// function mycallback(data) {
+//    alert(data);
+// }
+
+// getText('', mycallback); //passing mycallback as a method
 
    // Because of javascript's fabulous closure concept, the XMLHttpRequest "request"
    // object declared above is available in this function even though this function
@@ -108,6 +139,19 @@ function login(){
     // ...
   });*/
 
+}
+
+function courses(){
+  window.location.href="courses.html";
+}
+
+
+function immunhematology(){
+  window.location.href="immunhematology.html";
+}
+
+function chemistry(){
+  window.location.href="chemistry.html";
 }
 
 function home(){
