@@ -2,7 +2,9 @@
 html {
 	background: #282828;
 	color: #fff;
+	text-align: center;
 }
+
 body {
 	font-size: 15px;
 	background: #353535;
@@ -14,7 +16,10 @@ table {
 	margin: auto;
 	font-family: "Lucida Sans Unicode", "Lucida Grande", "Segoe Ui";
 	font-size: 12px;
+	display: inline-block;
+    padding: 10px;
 }
+
 
 h1 {
 	margin: 25px auto 0;
@@ -22,8 +27,10 @@ h1 {
 	text-transform: uppercase;
 	font-size: 40px;
 	color: #fff;
-	margin-bottom: 50px;
+}
 
+h3 {
+  color: #fff;
 }
 
 button {
@@ -70,13 +77,15 @@ button:hover {
   cursor: pointer;
 }
 
-p {
-	margin: 25px auto 0;
-	text-align: center;
-	text-transform: uppercase;
-	font-size: 40px;
-	color: #43964D;
+.submit:hover {
+  background: #D0BFED;
+  color: #fff;
+  cursor: pointer;
+}
 
+p {
+	font-size: 12px;
+	color: #fff;
 }
 
 table td {
@@ -87,13 +96,25 @@ table td {
 .table {
 	border-collapse: collapse;
 	font-size: 14px;
+	overflow: hidden;
+}
 
+td:hover{
+	background-color:#D0BFED;
+	cursor: pointer;
+}
+ 
+.selected{
+	background-color: red;
+	color: #fff;
+	font-weight: bold
 }
 
 .table th, 
 .table td {
 	border: 1px solid #000000;
 	padding: 7px 17px;
+	color: #fff;
 }
 .table caption {
 	margin: 7px;
@@ -109,7 +130,7 @@ table td {
 }
 
 .table tbody td {
-	color: #353535;
+	color: #FFFFFF;
 }
 
 .table tbody td:first-child,
@@ -119,11 +140,11 @@ table td {
 }
 
 .table tbody tr:nth-child(odd) td {
-	background-color: #f4fbff;
+	color:#FFFFFF;
 }
 .table tbody tr:hover td {
-	background-color: #ffffa2;
 	border-color: #000000;
+	color:#000000;
 }
 
 .table tfoot th {
@@ -144,7 +165,14 @@ table td {
 
 input[type="text"] {
     margin-top: 20px;
-    width: 30px;
+    width: 40px;
+    height: 20px;
+}
+
+input[type="text-info"] {
+    margin-top: 20px;
+    width: 150px;
+    height: 20px;
 }
 
 .button_section {
@@ -184,6 +212,8 @@ tr:hover{
 {
     width:100%;
     text-align: center;
+    display: inline-block;
+
 }
 .inner
 {
@@ -191,4 +221,61 @@ tr:hover{
     padding: 10px;
 }
 
+.patient-div {
+  background: #282828;
+  padding: 10px;
+  margin: 40px;
+  font-family: "segoe-ui", "open-sans", tahoma, arial;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  color:#fff;
+  font-size: 12px;
+  text-align: left;
+  display: inline-block;
+}
+.patient-admin-div {
+  background: #282828;
+  padding: 10px;
+  margin: 10px;
+  font-family: "segoe-ui", "open-sans", tahoma, arial;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  color:#fff;
+  font-size: 12px;
+  float: right;
+  text-align: left;
+}
+
+.modal-content {
+  background: #282828;
+}
+
+.modal-dialog button {
+  background: #421663;
+  color: #fff;
+  border-radius: 5px;
+  padding: 15px;
+  display: block;
+  width: 100%;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+}
+
+.modal-dialog button:hover {
+  background: #43964D;
+  color: #fff;
+  cursor: pointer;
+}
+
+.modal-footer-close button:hover {
+  background: tomato;
+  color: #fff;
+  cursor: pointer;
+}
+
+#allelic {
+  background: #009933;
+  border-style: solid;
+  border-width: 2px 3px 3px 3px;
+  border-color: #006400;
+}
 

@@ -5,7 +5,18 @@
 	<title>Admin Antigram Page</title>
 	<link rel="stylesheet" href="style.css" />
 </head>
-<h1>Antigram</h1>   
+<h1>Antigram</h1>  
+          <input type="checkbox" name="beginner" value="b">Beginner<br>
+          <input type="checkbox" name="intermediate" value="i">Intermediate<br>
+          <input type="checkbox" name="advanced" value="a">Advanced<br>
+          <p>Patient's Name: <input type="text-info" name="patientName" id="patientName"></p>
+          <p>Hospital Number: <input type="text-info" name="hospital" id="hospital"> </p>
+          <p>Institution: <input type="text-info" name="institution" id="institution"></p>
+          <p>Blood Group: <input type="text-info" name="bloodGroup" id="bloodGroup"></p>
+          <p>Antibody Identity: <input type="text-info" name="identity" id="identity"></p>
+          <p>Tech: <input type="text-info" name="tech" id="tech"></p>
+          <p>Date: <input type="text-info" name="date" id="date"></p>
+
 	<table id="table" class="table">
 		<thead>
 			<tr>
@@ -26,32 +37,32 @@
 			<tr>
 				<!-- Lot D-Xg -->
 				<th id="subtitle">D</th>
-				<th id="subtitle">C</th>
-				<th id="subtitle">c</th>
-				<th id="subtitle">E</th>
-				<th id="subtitle">e</th>
-				<th id="subtitle">f</th>
-				<th id="subtitle">K</th>
-				<th id="subtitle">k</th>
-				<th id="subtitle">Kp<sup>b</sup></th>
-				<th id="subtitle">Js<sup>b</sup></th>
-				<th id="subtitle">Fy<sup>a</sup></th>
-				<th id="subtitle">Fy<sup>b</sup></th>
-				<th id="subtitle">Jk<sup>a</sup></th>
-				<th id="subtitle">Jk<sup>b</sup></th>
-				<th id="subtitle">Le<sup>a</sup></th>
-				<th id="subtitle">Le<sup>b</sup></th>
-				<th id="subtitle">P<sub>1</sub></th>
-				<th id="subtitle">M</th>
-				<th id="subtitle">N</th>
-				<th id="subtitle">S</th>
-				<th id="subtitle">s</th>
-				<th id="subtitle">Lu<sup>b</sup></th>
-				<th id="subtitle">Xg<sup>a</sup></th>
-				<th id="subtitle">IS</th>
-				<th id="subtitle">37</th>
-				<th id="subtitle">AHG</th>
-				<th id="subtitle">CC</th>
+        <th id="allelic" class="allelic">C</th>
+        <th id="allelic" class="allelic">c</th>
+        <th id="allelic" class="allelic">E</th>
+        <th id="allelic" class="allelic">e</th>
+        <th id="subtitle">f</th>
+        <th id="subtitle">K</th>
+        <th id="subtitle">k</th>
+        <th id="subtitle">Kp<sup>b</sup></th>
+        <th id="subtitle">Js<sup>b</sup></th>
+        <th id="allelic" class="allelic">Fy<sup>a</sup></th>
+        <th id="allelic" class="allelic">Fy<sup>b</sup></th>
+        <th id="allelic" class="allelic">Jk<sup>a</sup></th>
+        <th id="allelic" class="allelic">Jk<sup>b</sup></th>
+        <th id="subtitle">Le<sup>a</sup></th>
+        <th id="subtitle">Le<sup>b</sup></th>
+        <th id="subtitle">P<sub>1</sub></th>
+        <th id="allelic" class="allelic">M</th>
+        <th id="allelic" class="allelic">N</th>
+        <th id="allelic" class="allelic">S</th>
+        <th id="allelic" class="allelic">s</th>
+        <th id="subtitle">Lu<sup>b</sup></th>
+        <th id="subtitle">Xg<sup>a</sup></th>
+        <th id="subtitle">IS</th>
+        <th id="subtitle">37</th>
+        <th id="subtitle">AHG</th>
+        <th id="subtitle">CC</th>
 			</tr>
       <tr>
         <td colspan="24">AC</td>
@@ -68,7 +79,10 @@
 			
 		</tfoot>
 	</table>
+</div>
+
     <div id="outer" class="table-input">
+      <div class="inner">
 			# :<input type="text" name="#" id="#">
 			D :<input type="text" name="D" id="D">
 			C :<input type="text" name="C" id="C">
@@ -98,16 +112,24 @@
 			AHG :<input type="text" name="AHG" id="AHG">
 			CC :<input type="text" name="CC" id="CC">
     </div>
-    <div id="outer">
-      <input type="checkbox" name="beginner" value="b">Beginner<br>
-      <input type="checkbox" name="intermediate" value="i">Intermediate<br>
-      <input type="checkbox" name="advanced" value="a">Advanced<br>
     </div>
+    
+
     <div id="outer">
 			<div class="inner"><button class="button add"; onclick="addHtmlTableRow();">Add</button></div>
 			<div class="inner"><button class="button edit"; onclick="editHtmlTbleSelectedRow();">Edit</button></div>
       <div class="inner"><button class="button remove"; onclick="removeSelectedRow();">Remove</button></div>
+      <div class="inner"><button class="button submit"; onclick="">Submit</button></div>
     </div>
+    <footer>
+    <div class="nav">
+        <ul class="main-menu">
+            <li><a href="index.html">Logout</a>
+            </li>
+        </ul>
+    </div>
+</footer>
+   
 	<script>
 
 		var rIndex,
@@ -396,5 +418,7 @@
                 CC = document.getElementById("CC").value = "";
             }
         </script>
+
     </body>
+
 </html>

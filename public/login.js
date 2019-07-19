@@ -166,6 +166,10 @@ function newPanel(){
   window.location.href="admin-grid.html";
 }
 
+function antigram(){
+  window.location.href="grid.html";
+}
+
 function newUserlogin(){
   //window.alert(user.uid)
   var userFirst = document.getElementById("firstname").value;
