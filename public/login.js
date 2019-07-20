@@ -170,6 +170,18 @@ function antigram(){
   window.location.href="grid.html";
 }
 
+function beginner(){
+  window.location.href="panel.html"
+}
+
+function intermediate(){
+  window.location.href="panel.html";
+}
+
+function advanced(){
+  window.location.href="panel.html";
+}
+
 function newUserlogin(){
   //window.alert(user.uid)
   var userFirst = document.getElementById("firstname").value;
