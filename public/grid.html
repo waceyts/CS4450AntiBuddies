@@ -41,7 +41,7 @@
 			</tr>
 			<tr class="allelic">
 				<!-- Lot D-Xg -->
-				<th id="subtitle">D</th>
+				<th id="subtitle" onclick="click()">D</th>
 				<th id="allelic" class="allelic">C</th>
 				<th id="allelic" class="allelic">c</th>
 				<th id="allelic" class="allelic">E</th>
@@ -304,6 +304,10 @@
 			      $(this).focus();
 			    });
 			}
+
+			function click(){
+  				document.getElementById("table").innerHTML = 'X';
+			}	
             
         </script> 
 	</body>

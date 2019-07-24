@@ -182,6 +182,10 @@ function advanced(){
   window.location.href="panel.html";
 }
 
+function quiz(){
+  window.location.href="quiz.html";
+}
+
 function newUserlogin(){
   //window.alert(user.uid)
   var userFirst = document.getElementById("firstname").value;
