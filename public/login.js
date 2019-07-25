@@ -66,14 +66,10 @@ var responseVal;
 
 
   function getUser() {
-    debugger;
     lambda.invoke(params, function(error, data) {
-      debugger;
       if (error) {
-        debugger;
         prompt(error);
       } else {
-        debugger;
         console.log('were somewhat in');
         console.log('data: ', data);
         responseVal = JSON.parse(data.Payload);
