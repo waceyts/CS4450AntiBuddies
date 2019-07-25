@@ -230,7 +230,10 @@
                     table.rows[i].cells[j].onclick = function()
                     {
                         rIndex = this.parentElement.rowIndex;
-                        cIndex = this.cellIndex+1;
+						cIndex = this.cellIndex+1;
+						//table[rIndex][cIndex]
+						console.log("cIndex: ", cIndex);
+						console.log(table[rIndex][cIndex-1]);
                         console.log("Row : "+rIndex+" , Cell : "+cIndex);
                      
                     };
