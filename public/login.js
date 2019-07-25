@@ -215,6 +215,26 @@ function newPanel(){
   window.location.href="admin-grid.html";
 }
 
+function antigram(){
+  window.location.href="grid.html";
+}
+
+function beginner(){
+  window.location.href="panel.html"
+}
+
+function intermediate(){
+  window.location.href="panel.html";
+}
+
+function advanced(){
+  window.location.href="panel.html";
+}
+
+function quiz(){
+  window.location.href="quiz.html";
+}
+
 function newUserlogin(){
   //window.alert(user.uid)
   var userFirst = document.getElementById("firstname").value;

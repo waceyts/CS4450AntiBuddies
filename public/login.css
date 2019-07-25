@@ -1,5 +1,6 @@
 html {
   background: #282828;
+  zoom: 100%;
 }
 body {
   background: #353535;
@@ -62,13 +63,10 @@ button {
 }
 
 .user_div_button {
-
-margin-top: 20px;
-width: auto;
-height: auto;
+  margin-top: 20px;
+  width: auto;
+  height: auto;
 }
-
-
 
 .main-div input, .modal-dialog input {
   display: block;

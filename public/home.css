@@ -118,6 +118,8 @@ h2 {
   align-content: center;
   margin: 20px;
   position: relative;
+  height: auto;
+  width: auto;
 }
 
 .card2:hover, .card3:hover, .card4:hover  {
@@ -201,4 +203,8 @@ h2 {
   font-size: 12px;
   padding-top: 15px;
   padding-bottom: 15px;
+}
+
+.levels_btns_beginner, .levels_btns_intermediate, .levels_btns_advanced {
+  float: right;
 }
