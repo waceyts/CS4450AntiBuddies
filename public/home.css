@@ -50,13 +50,6 @@ a {
   color: #421663;
 }
 
-h2 {
-  color: #fff;
-  margin: 25px auto 0;
-  text-align: center;
-  font-size: 40px;
-}
-
 .levels_btns {
   background-color: #ffff;
   padding: 20px;
@@ -91,11 +84,6 @@ h2 {
 
 .stats {
   display: inline-block;
-}
-
-.stat_txt {
-  color: white;
-  font-weight: bold;
 }
 
 .cont {
@@ -207,4 +195,25 @@ h2 {
 
 .levels_btns_beginner, .levels_btns_intermediate, .levels_btns_advanced {
   float: right;
+  height: 10vh;
+  margin-top: 5vh;
+  margin-bottom: 5vh;
+  margin-right: 5vh;
+}
+
+.level-row {
+  height: 20vh;
+  width: 100%;
+}
+
+.level_txt {
+  font-weight: 500;
+  font-size: 22px;
+  text-shadow: .5px .5px #000000;
+}
+
+#welcome {
+  margin: 25px 0 40px;
+  font-size: 40px;
+  color: #fff;
 }
