@@ -1,82 +1,39 @@
-  //Trying to import AWS / Firebase
-  
-  // var config = {
-  //     apiKey: "AIzaSyDYRTle8vQqNZDCL_wx2HZflZfMf_k2dBk",
-  //     authDomain: "antibuddies-1019a.firebaseapp.com",
-  //     databaseURL: "https://antibuddies-1019a.firebaseio.com",
-  //     projectId: "antibuddies-1019a",
-  //     storageBucket: "antibuddies-1019a.appspot.com",
-  //     messagingSenderId: "533152371568",
-  //     appId: "1:533152371568:web:24876187a15d6c91"
-  //   };
-  //     firebase.initializeApp(config); 
+  var config = {
+      apiKey: "AIzaSyDYRTle8vQqNZDCL_wx2HZflZfMf_k2dBk",
+      authDomain: "antibuddies-1019a.firebaseapp.com",
+      databaseURL: "https://antibuddies-1019a.firebaseio.com",
+      projectId: "antibuddies-1019a",
+      storageBucket: "antibuddies-1019a.appspot.com",
+      messagingSenderId: "533152371568",
+      appId: "1:533152371568:web:24876187a15d6c91"
+    };
+      firebase.initializeApp(config); 
+      window.onload = function() {
+        // inititally hide the user welcome
+        document.getElementById("user_div").style.display = "none";
 
-////////////////////////////////////////////////////////////////////////////
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+            // User is signed in.
+            document.getElementById("user_div").style.display = "block";
+            document.getElementById("login_form").style.display = "none";
 
-//AWS configurations
-AWS.config.update({region:'us-east-2'});
-AWS.config.credentials = new AWS.CognitoIdentityCredentials({IdentityPoolId: 'us-east-2:ae65310a-354d-4f4b-a770-e5d13c2cc74e'});
+            var user = firebase.auth().currentUser;
 
-var lambda = new AWS.Lambda({region: 'us-east-2', apiVersion: '2015-03-31'});
+            if(user != null){
 
-// create JSON object for parameters for invoking Lambda function
-var params = {
-  FunctionName : 'getUserWithId',
-  InvocationType : 'RequestResponse',
-  Payload: '1',
-  LogType : 'None'
-};
+              var email_id = user.email;
+              document.getElementById("user_para").innerHTML = "User Email : " + email_id;
+            
+            }
+          } else {
+            // No user is signed in.
+            document.getElementById("login_form").style.display = "block";
+            document.getElementById("user_div").style.display = "none";
 
-// create variable to hold data returned by the Lambda function
-var responseVal;
-
-
-
-
-  //init
-  window.onload = function() {
-    // inititally hide the user welcome
-    document.getElementById("user_div").style.display = "none";
-
-
-    //firebase AUTH content
-    // firebase.auth().onAuthStateChanged(function(user) {
-    //   if (user) {
-    //     // User is signed in.
-    //     document.getElementById("user_div").style.display = "block";
-    //     document.getElementById("login_form").style.display = "none";
-
-    //     var user = firebase.auth().currentUser;
-
-    //     if(user != null){
-
-    //       var email_id = user.email;
-    //       document.getElementById("user_para").innerHTML = "User Email : " + email_id;
-        
-    //     }
-    //   } else {
-    //     // No user is signed in.
-    //     document.getElementById("login_form").style.display = "block";
-    //     document.getElementById("user_div").style.display = "none";
-
-    //   }
-    // });
-
-  }
-
-
-  function getUser() {
-    lambda.invoke(params, function(error, data) {
-      if (error) {
-        prompt(error);
-      } else {
-        console.log('were somewhat in');
-        console.log('data: ', data);
-        responseVal = JSON.parse(data.Payload);
+          }
+        });
       }
-    });
-  }
-
 
 function login(){
 
@@ -84,17 +41,15 @@ function login(){
   var userEmail = document.getElementById("email_field").value;
   var userPass = document.getElementById("password_field").value;
 
-  // firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
-  //   // Handle Errors here.
-  //   var errorCode = error.code;
-  //   var errorMessage = error.message;
+  firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
 
-  //   window.alert("Error : " + errorMessage);
+    window.alert("Error : " + errorMessage);
 
-  //   // ...
-  // });
-
-
+    // ...
+  });
 
 //START OF POST REQUEST
 var url = "https://antibuddies-274a7.web.app/index.html";
@@ -209,6 +164,10 @@ function logout(){
 
 function newPanel(){
   window.location.href="admin-grid.html";
+}
+
+function newQuestion(){
+  window.location.href="admin-quiz.html";
 }
 
 function antigram(){

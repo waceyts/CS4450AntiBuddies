@@ -7,7 +7,7 @@ body {
   padding: 0px;
   margin: 40px;
   font-family: "segoe-ui", "open-sans", tahoma, arial;
-  font-size: 16px;
+  font-size: 15px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   color:#fff;
 }
@@ -15,10 +15,11 @@ h3 {
   color: #fff;
 }
 h1 {
-  color: #fff;
   margin: 25px auto 0;
   text-align: center;
+  text-transform: uppercase;
   font-size: 40px;
+  color: #fff;
 }
 a {
   text-decoration: none;

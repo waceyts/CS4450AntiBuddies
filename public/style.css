@@ -14,9 +14,15 @@ body {
 	margin: 0;
 }
 
+label {
+  padding: 10px;
+ display: inline-block;
+ font-size: 20px;
+}
+
 table {
 	margin: auto;
-	font-family: "Lucida Sans Unicode", "Lucida Grande", "Segoe Ui";
+	font-family: "segoe-ui", "open-sans", tahoma, arial;
 	font-size: 12px;
 	display: inline-block;
     padding: 10px;
@@ -32,6 +38,8 @@ h1 {
 
 h3 {
   color: #fff;
+  margin-bottom: 40px;
+
 }
 
 button {
@@ -344,3 +352,23 @@ input[type="text-info"] {
      .main-menu>li:hover, .sub-menu>li:hover{
           background: #43964D;
          }
+#table {
+  margin-top: 30px;
+}
+
+.info {
+  margin: 30px;
+}
+
+hr {
+    background-color: white;
+    padding-top: 1%;
+}
+
+hr.thin {
+    height: 1px;
+    border: 0;
+    color: #333;
+    background-color: #333;
+    width: 40%;
+}

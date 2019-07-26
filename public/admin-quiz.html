@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Quiz Maker</title>
+    <script defer src="/__/firebase/6.0.4/firebase-app.js"></script>
+      <!-- include only the Firebase features as you need -->
+      <script defer src="/__/firebase/6.0.4/firebase-auth.js"></script>
+      <script defer src="/__/firebase/6.0.4/firebase-database.js"></script>
+      <script defer src="/__/firebase/6.0.4/firebase-storage.js"></script>
+      <!-- initialize the SDK after all desired features are loaded -->
+      <script defer src="/__/firebase/init.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+      <script type="text/javascript" src="js/bootstrap.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="panel.css">
+    <script src="login.js"></script>
+</head>
+
+
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-5">
+            <hr class="thin">
+        </div>
+        <div class="col-lg-2 text-center">
+            <h1 class="header">Create Quiz</h1>
+        </div>
+        <div class="col-lg-5">
+            <hr class="thin">
+        </div>
+    </div>
+</div>
+<div id="quiz" class="outer">
+    <div class="inner">
+        <form id="txt_form" name="frmText">
+            <div>
+                <textarea name="form_text" rows="10" cols="40" placeholder="Enter you question here..."></textarea>
+            </div>
+            <div class="options">
+                <span><input type="radio" name="correctAnswer" value="a"><label for="a">a</label><input type="" id="" /></span>
+                <span><input type="radio" name="correctAnswer" value="b"><label for="b">b</label><input type="" id="" /></span>
+                <span><input type="radio" name="correctAnswer" value="c"><label for="c">c</label><input type="" id="" /></span>
+                <span><input type="radio" name="correctAnswer" value="d"><label for="d">d</label><input type="" id="" /></span>
+            </div>
+            <div>
+                <textarea name="form_text" rows="10" cols="40" placeholder="Enter additional notes...(ex. Correct answer is B, can be found on page: )"></textarea>
+            </div>
+        </form>
+        <button id="submit">Submit</button>
+    </div>
+</div>
+<div id="results"></div>
+
+<footer>
+    <div class="nav">
+        <ul class="main-menu">
+            <li><a href="index.html">Logout</a>
+            </li>
+        </ul>
+    </div>
+</footer>
+
+</body>
+</html>
