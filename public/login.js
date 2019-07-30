@@ -19,12 +19,13 @@ AWS.config.credentials = new AWS.CognitoIdentityCredentials({IdentityPoolId: 'us
 
 var lambda = new AWS.Lambda({region: 'us-east-2', apiVersion: '2015-03-31'});
 
+var blob = new Blob(['ID:1'], {type: 'text/plain'});
 // create JSON object for parameters for invoking Lambda function
 var params = {
-  FunctionName : 'getUserWithId',
-  InvocationType : 'RequestResponse',
-  Payload: '1',
-  LogType : 'None'
+  FunctionName : "getUserWeb",
+  InvocationType : "RequestResponse",
+  LogType : "None",
+  Payload : "{ID:2}",
 };
 
 // create variable to hold data returned by the Lambda function
@@ -68,11 +69,13 @@ var responseVal;
   function getUser() {
     lambda.invoke(params, function(error, data) {
       if (error) {
-        prompt(error);
+        prompt(error, error.stack);
       } else {
         console.log('were somewhat in');
-        console.log('data: ', data);
+        console.log('data: '+ data.Payload);
         responseVal = JSON.parse(data.Payload);
+        debugger;
+        console.log("responseVal: " + responseVal);
       }
     });
   }
