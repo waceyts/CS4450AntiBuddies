@@ -214,6 +214,10 @@ function newPanel(){
   window.location.href="admin-grid.html";
 }
 
+function newQuestion() {
+  window.location.href="admin-quiz.html";
+}
+
 function antigram(){
   window.location.href="grid.html";
 }
