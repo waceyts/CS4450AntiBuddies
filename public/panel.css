@@ -1,5 +1,5 @@
 html {
-  background: #282828;
+
   zoom: 100%;
 }
 
@@ -8,11 +8,18 @@ body {
     padding: 0px;
     margin: 40px;
     font-family: "segoe-ui", "open-sans", tahoma, arial;
-    font-size: 16px;
+    font-size: 15px;
     align-content: center;
     color: #FFF;
+}
 
-  }
+ h1 {
+  margin-bottom: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 40px;
+  color: #fff;
+}
 
   button {
   margin-top: 20px;
@@ -62,21 +69,28 @@ button:hover {
 label {
   padding: 10px;
  display: inline-block;
+ font-size: 20px;
 }
 
 #submit{
     font-size: 20px;
-    background-color: #297;
+    background: #421663;
     color: #fff;
     border: 0px;
     border-radius: 3px;
-    padding: 20px;
     cursor: pointer;
     margin-bottom: 20px;
     display: inline-block;
+    background: #421663;
+    color: #fff;
+    border-radius: 5px;
+    padding: 15px;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
 }
 #submit:hover{
-   background: #D0BFED;
+   background: #43964D;
   color: #fff;
   cursor: pointer;
 }
@@ -103,6 +117,27 @@ a {
     padding-top: 1%;
     padding-bottom: 1%;
 }
+input[type='radio'] { 
+  transform: scale(2); 
+  background: #282828;
+}
+
+textarea, input {
+  background: #353535;
+  color: #FFF;
+  margin: 15px;
+  padding: 20px;
+  font-family: "segoe-ui", "open-sans", tahoma, arial;
+  font-weight: 700;
+
+}
+textarea {
+  width: 100%;
+}
+input {
+  margin-left:20px;
+}
+
 
 hr {
     background-color: white;

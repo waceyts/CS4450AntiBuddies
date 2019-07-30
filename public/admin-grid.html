@@ -4,18 +4,33 @@
 	<meta charset="utf-8" />
 	<title>Admin Antigram Page</title>
 	<link rel="stylesheet" href="style.css" />
-</head>
-<h1>Antigram</h1>  
-          <input type="checkbox" name="beginner" value="b">Beginner<br>
-          <input type="checkbox" name="intermediate" value="i">Intermediate<br>
-          <input type="checkbox" name="advanced" value="a">Advanced<br>
-          <p>Patient's Name: <input type="text-info" name="patientName" id="patientName"></p>
-          <p>Hospital Number: <input type="text-info" name="hospital" id="hospital"> </p>
-          <p>Institution: <input type="text-info" name="institution" id="institution"></p>
-          <p>Blood Group: <input type="text-info" name="bloodGroup" id="bloodGroup"></p>
-          <p>Antibody Identity: <input type="text-info" name="identity" id="identity"></p>
-          <p>Tech: <input type="text-info" name="tech" id="tech"></p>
-          <p>Date: <input type="text-info" name="date" id="date"></p>
+</head> 
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-5">
+            <hr class="thin">
+        </div>
+        <div class="col-lg-2 text-center">
+            <h1 class="header">Create Panel</h1>
+        </div>
+        <div class="col-lg-5">
+            <hr class="thin">
+        </div>
+    </div>
+</div>
+          <label for="a">Beginner</label><input type="checkbox" name="beginner" value="b">
+          <label for="a">Intermediate</label><input type="checkbox" name="intermediate" value="i">
+          <label for="a">Advanced</label><input type="checkbox" name="advanced" value="a">
+          <div class="info">
+            <label for="a">Patient's Name: </label><input type="text-info" name="patientName" id="patientName">
+            <label for="a">Hospital Number: </label><input type="text-info" name="hospital" id="hospital">
+            <label for="a">Institution: </label><input type="text-info" name="institution" id="institution">
+            <label for="a">Blood Group: </label><input type="text-info" name="bloodGroup" id="bloodGroup">
+            <label for="a">Antibody Identity: </label><input type="text-info" name="identity" id="identity">
+            <label for="a">Tech: </label><input type="text-info" name="tech" id="tech">
+            <label for="a">Date: </label><input type="text-info" name="date" id="date">
+          </div>
 
 	<table id="table" class="table">
 		<thead>
@@ -119,6 +134,7 @@
       <div class="inner"><button class="button remove"; onclick="removeSelectedRow();">Remove</button></div>
       <div class="inner"><button class="button submit"; onclick="">Submit</button></div>
     </div>
+  </body>
     <footer>
     <div class="nav">
         <ul class="main-menu">
