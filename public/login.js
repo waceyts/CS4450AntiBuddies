@@ -31,9 +31,6 @@ var params = {
 // create variable to hold data returned by the Lambda function
 var responseVal;
 
-
-
-
   //init
   window.onload = function() {
     // inititally hide the user welcome
@@ -96,8 +93,6 @@ function login(){
 
   //   // ...
   // });
-
-
 
 //START OF POST REQUEST
 var url = "https://antibuddies-274a7.web.app/index.html";
@@ -255,5 +250,4 @@ function newUserlogin(){
 
     // ...
   });
-
 }
