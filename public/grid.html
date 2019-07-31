@@ -280,7 +280,7 @@
             var table = document.getElementById("table"),rIndex,cIndex;
             
             // table rows
-            for(var i = 1; i < table.rows.length; i++)
+            for(var i = 1; i < table.rows.length; i++) //selecting row 
             {
                 // row cells
                 for(var j = 0; j < table.rows[i].cells.length; j++)
@@ -290,14 +290,14 @@
                         rIndex = this.parentElement.rowIndex;
                         cIndex = this.cellIndex;
                         console.log("Row : "+rIndex+" , Cell : "+cIndex);
-                        document.getElementById("table").rows[rIndex].cells[cIndex].innerHTML = '/';
+                        document.getElementById("table").rows[rIndex].cells[cIndex].innerHTML = '/'; //first strike marker
                     };
                 }
             }
 
-            if (screen.width < 500) {
+            if (screen.width < 500) { //hover for selector 
   
-			  $("body").addClass("nohover");
+			  $("body").addClass("nohover");  
 			  $("td, th")
 			    .attr("tabindex", "1")
 			    .on("touchstart", function() {
@@ -306,7 +306,7 @@
 			}
 
 			function click(){
-  				document.getElementById("table").innerHTML = 'X';
+  				document.getElementById("table").innerHTML = 'X'; //second strike marker
 			}	
             
         </script> 

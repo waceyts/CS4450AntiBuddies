@@ -19,19 +19,18 @@
         </div>
     </div>
 </div>
-          <label for="a">Beginner</label><input type="checkbox" name="beginner" value="b">
-          <label for="a">Intermediate</label><input type="checkbox" name="intermediate" value="i">
-          <label for="a">Advanced</label><input type="checkbox" name="advanced" value="a">
-          <div class="info">
-            <label for="a">Patient's Name: </label><input type="text-info" name="patientName" id="patientName">
-            <label for="a">Hospital Number: </label><input type="text-info" name="hospital" id="hospital">
-            <label for="a">Institution: </label><input type="text-info" name="institution" id="institution">
-            <label for="a">Blood Group: </label><input type="text-info" name="bloodGroup" id="bloodGroup">
-            <label for="a">Antibody Identity: </label><input type="text-info" name="identity" id="identity">
-            <label for="a">Tech: </label><input type="text-info" name="tech" id="tech">
-            <label for="a">Date: </label><input type="text-info" name="date" id="date">
-          </div>
-
+  <label for="a">Beginner</label><input type="checkbox" name="beginner" value="b">
+  <label for="a">Intermediate</label><input type="checkbox" name="intermediate" value="i">
+  <label for="a">Advanced</label><input type="checkbox" name="advanced" value="a">
+    <div class="info">
+      <label for="a">Patient's Name: </label><input type="text-info" name="patientName" id="patientName">
+      <label for="a">Hospital Number: </label><input type="text-info" name="hospital" id="hospital">
+      <label for="a">Institution: </label><input type="text-info" name="institution" id="institution">
+      <label for="a">Blood Group: </label><input type="text-info" name="bloodGroup" id="bloodGroup">
+      <label for="a">Antibody Identity: </label><input type="text-info" name="identity" id="identity">
+      <label for="a">Tech: </label><input type="text-info" name="tech" id="tech">
+      <label for="a">Date: </label><input type="text-info" name="date" id="date">
+    </div>
 	<table id="table" class="table">
 		<thead>
 			<tr>
@@ -87,15 +86,8 @@
         <td></td>
       </tr>
 		</thead>
-		<tbody>
-			
-		</tbody>
-		<tfoot>
-			
-		</tfoot>
 	</table>
 </div>
-
     <div id="outer" class="table-input">
       <div class="inner">
 			# :<input type="text" name="#" id="#">
@@ -143,8 +135,7 @@
         </ul>
     </div>
 </footer>
-   
-	<script>
+<script>
 
 		var rIndex,
 		table = document.getElementById("table");
@@ -288,11 +279,9 @@
                 selectedRowToInput();
             }
         }
-
             // display selected row data into input text
             function selectedRowToInput()
             {
-
             	for(var i = 1; i < table.rows.length; i++)
             	{
             		table.rows[i].onclick = function()
@@ -432,7 +421,5 @@
                 CC = document.getElementById("CC").value = "";
             }
         </script>
-
     </body>
-
 </html>
