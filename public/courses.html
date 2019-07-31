@@ -2,22 +2,48 @@
 <html>
 <head>
 	<title>Courses</title>
+	<script src="https://sdk.amazonaws.com/js/aws-sdk-2.500.0.min.js"></script>
+      
 </head>
 <link rel="stylesheet" href="login.css">
 <script src="login.js"></script>
 
 <body>
 	<div class="head">
-		<h1>Departments</h1>
+		<div class="row">
+			<div class="col-xs-12">
+				<h1 id="departments">Departments</h1>
+				<hr class="thin">
+			</div>
+		</div>
 	</div>
-	<div class="outer"; id="outer">
-		<div class="inner"><button class="immunhematology"; onclick="immunhematology()">Immunhematology</button></div>
-		<div class="inner"><button class="chemistry" onclick="chemistry()";>Chemistry</button></div>
-		<div class="inner"><button class="immunhematology"; onclick="">Microbiology</button></div>
-		<div class="inner"><button class="chemistry" onclick="";>Hematology</button></div>
-		<div class="inner"><button class="immunhematology"; onclick="">Immunology</button></div>
-		<div class="inner"><button class="chemistry" onclick="";>Urinalysis</button></div>
-    </div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="outer">
+			<span class="col-sm">
+				<div class="inner"><button class="immunhematology"; onclick="immunhematology()">Immunhematology</button></div>
+			</span>
+			<span class="col-sm">
+				<div class="inner"><button class="chemistry">Chemistry</button></div>
+			</span>
+			<span class="col-sm">
+				<div class="inner"><button class="microbiology"; onclick="">Microbiology</button></div>
+			</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="outer">
+			<span class="col-sm">
+				<div class="inner"><button class="hematology" onclick="";>Hematology</button></div>
+			</span>
+			<span class="col-sm">
+				<div class="inner"><button class="immunology"; onclick="">Immunology</button></div>
+			</span>
+			<span class="col-sm">
+				<div class="inner"><button class="urinalysis" onclick="";>Urinalysis</button></div>
+			</span>
+			</div>
+		</div>
 </body>
 <footer>
     <div class="nav">

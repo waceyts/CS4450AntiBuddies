@@ -8,15 +8,16 @@ body {
 }
 
 a {
-  text-decoration: none
+  text-decoration: none;
   color: #fff;
 }
 
 .card2-container button, .card3-container button, .card4-container button {
   color: #fff;
   border-radius: 5px;
-  padding: 15px;
-  margin-bottom: 5px;
+  padding: 15px 40px;
+  /* margin-bottom: 5px; */
+  margin-top: 5vh;
   display: block;
   transition: 0.3s;
   -webkit-transition: 0.3s;
@@ -24,14 +25,17 @@ a {
 }
 .card2-container button {
   background: #43694D;
+  border: 1px solid #43694D;
 }
 
 .card3-container button {
   background: #DFA801;
+  border: 1px solid #DFA801;
 }
 
 .card4-container button {
   background: #421663;
+  border: 1px solid #421663;
 }
 
 .card2-container button:hover {
@@ -52,8 +56,8 @@ a {
 h1 {
   margin: 25px auto 0;
   text-align: center;
-  text-transform: uppercase;
-  font-size: 40px;
+  /* text-transform: uppercase; */
+  /* font-size: 40px; */
   color: #fff;
 }
 
@@ -72,7 +76,7 @@ h1 {
 }
 
 .stat_numbers {
-  font-weight: bold;
+  font-weight: 500;
   font-size: 40px;
   padding-right: 5px;
 }
@@ -127,11 +131,11 @@ h1 {
 }
 
 .card2-container, .card3-container, .card4-container {
-  padding: 2px 16px;
+  padding: 10px 10px 60px;
 }
 
 .card1-container {
-  padding: 2px 16px;
+  padding: 10px 10px 60px;
 }
 
 .card1 {

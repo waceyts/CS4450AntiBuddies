@@ -19,13 +19,12 @@ AWS.config.credentials = new AWS.CognitoIdentityCredentials({IdentityPoolId: 'us
 
 var lambda = new AWS.Lambda({region: 'us-east-2', apiVersion: '2015-03-31'});
 
-var blob = new Blob(['ID:1'], {type: 'text/plain'});
 // create JSON object for parameters for invoking Lambda function
 var params = {
   FunctionName : "getUserWeb",
   InvocationType : "RequestResponse",
   LogType : "None",
-  Payload : "{ID:2}",
+  Payload : '{"ID":"3"}',
 };
 
 // create variable to hold data returned by the Lambda function
@@ -74,7 +73,6 @@ var responseVal;
         console.log('were somewhat in');
         console.log('data: '+ data.Payload);
         responseVal = JSON.parse(data.Payload);
-        debugger;
         console.log("responseVal: " + responseVal);
       }
     });
@@ -195,7 +193,7 @@ function courses(){
 
 
 function immunhematology(){
-  window.location.href="immunhematology.html";
+  window.location.href="Immunhematology.html";
 }
 
 function chemistry(){

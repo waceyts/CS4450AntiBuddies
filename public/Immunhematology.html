@@ -5,16 +5,34 @@
 </head>
 <link rel="stylesheet" href="login.css">
 <script src="login.js"></script>
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.500.0.min.js"></script>
 
 <body>
 	<div class="head">
-		<h1>Immunhematology</h1>
+		<div class="row">
+			<div class="col-xs-12">
+				<h1 id="immunhematology">Immunhematology</h1>
+				<hr class="thin">
+			</div>
+		</div>
 	</div>
-	<div class="outer"; id="outer">
-		<div class="inner"><button class="panel"; onclick="home()">Panels</button></div>
-		<div class="inner"><button class="panelex" onclick="home()";>Panel Examples</button></div>
-		<div class="inner"><button class="pq" onclick="quiz()";>Practice Questions</button></div>
-    </div>
+
+		<div class="container-fluid">
+			<div class="row">
+				<div class="outer">
+					<div class="col-sm panel_options">
+						<button class="panel"; onclick="home()">Panels</button>	
+					</div>
+					<div class="col-sm panel_options">
+						<button class="panelex" onclick="home()";>Panel Examples</button>	
+					</div>
+					<div class="col-sm panel_options">
+						<button class="pq" onclick="quiz()";>Practice Questions</button>	
+					</div>
+				</div>
+			</div>
+		</div>
+
 </body>
 <footer>
     <div class="nav">
