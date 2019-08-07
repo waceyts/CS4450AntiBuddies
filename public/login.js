@@ -108,6 +108,8 @@ function processRequest(e) {
         alert(xhr.response.ip); // no parsing needed
     }
 }
+
+
 // You REALLY want shouldBeAsync = true.
 // Otherwise, it'll block ALL execution waiting for server response.
 // var shouldBeAsync = true;
@@ -182,10 +184,17 @@ function processRequest(e) {
 
 }
 
+function Admin(){
+  window.location.href="admin.html";
+}
+
+function practiceQuestions(){
+  window.location.href="quiz.html";
+}
+
 function courses(){
   window.location.href="courses.html";
 }
-
 
 function immunhematology(){
   window.location.href="Immunhematology.html";
