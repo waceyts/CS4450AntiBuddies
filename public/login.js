@@ -1,17 +1,3 @@
-  //Trying to import AWS / Firebase
-  
-  // var config = {
-  //     apiKey: "AIzaSyDYRTle8vQqNZDCL_wx2HZflZfMf_k2dBk",
-  //     authDomain: "antibuddies-1019a.firebaseapp.com",
-  //     databaseURL: "https://antibuddies-1019a.firebaseio.com",
-  //     projectId: "antibuddies-1019a",
-  //     storageBucket: "antibuddies-1019a.appspot.com",
-  //     messagingSenderId: "533152371568",
-  //     appId: "1:533152371568:web:24876187a15d6c91"
-  //   };
-  //     firebase.initializeApp(config); 
-
-////////////////////////////////////////////////////////////////////////////
 
 //AWS configurations
 AWS.config.update({region:'us-east-2'});
