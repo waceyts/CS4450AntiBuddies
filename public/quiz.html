@@ -3,15 +3,21 @@
 <html>
 <head>
     <title>Sample Quiz</title>
-
-    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.500.0.min.js"></script>
-
+    <script defer src="/__/firebase/6.0.4/firebase-app.js"></script>
+      <!-- include only the Firebase features as you need -->
+      <script defer src="/__/firebase/6.0.4/firebase-auth.js"></script>
+      <script defer src="/__/firebase/6.0.4/firebase-database.js"></script>
+      <script defer src="/__/firebase/6.0.4/firebase-storage.js"></script>
+      <!-- initialize the SDK after all desired features are loaded -->
+      <script defer src="/__/firebase/init.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+      <script type="text/javascript" src="js/bootstrap.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
-    <script type="text/javascript" src="js/bootstrap.js"></script>
     <link rel="stylesheet" href="panel.css">
     <script src="login.js"></script>
-
 </head>
 <body>
 <div class="container-fluid">
@@ -116,6 +122,12 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
             else{
 
                 answerContainers[i].style.color = 'red';
+                if (userAnswer===questions[1].correctAnswer) {
+                window.alert("Correct response is B. Anti-Ch and anti-Rg can be neutralized by pooled human plasma because the Ch and Rg antigens reside on complement protein C4. Neutralization studies with pooled plasma can help confirm the antibody reactivity in a patient’s sample. (Source Harmening, 7th Edition, Chapter...)");
+                }
+                if (userAnswer===questions[2].correctAnswer) {
+                    window.alert("Correct response is C. A serological test to confirm the ABO on all RBC units and Rh on units labeled as Rh-negative must be performed prior to transfusion. Any errors in labeling must be reported to the collecting facility. (Source AABB Standards, Section...)");
+                }
             }
         }
 
@@ -126,8 +138,7 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
 
     submitButton.onclick = function(){
         showResults(questions, quizContainer, resultsContainer);
-        // window.alert("Correct response is B. Anti-Ch and anti-Rg can be neutralized by pooled human plasma because the Ch and Rg antigens reside on complement protein C4. Neutralization studies with pooled plasma can help confirm the antibody reactivity in a patient’s sample. (Source Harmening, 7th Edition, Chapter...)");
-        // window.alert("Correct response is C. A serological test to confirm the ABO on all RBC units and Rh on units labeled as Rh-negative must be performed prior to transfusion. Any errors in labeling must be reported to the collecting facility. (Source AABB Standards, Section...)");
+        
     }
 }
 </script>
