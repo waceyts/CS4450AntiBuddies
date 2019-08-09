@@ -1,3 +1,6 @@
+// var AWS = require('aws-sdk');
+// var uuid = require('uuid');
+// var sha256 = require('js-sha256');
 
 //AWS configurations
 AWS.config.update({region:'us-east-2'});
@@ -5,16 +8,19 @@ AWS.config.credentials = new AWS.CognitoIdentityCredentials({IdentityPoolId: 'us
 
 var lambda = new AWS.Lambda({region: 'us-east-2', apiVersion: '2015-03-31'});
 
-// create JSON object for parameters for invoking Lambda function
-var params = {
-  FunctionName : "getUserWeb",
-  InvocationType : "RequestResponse",
-  LogType : "None",
-  Payload : '{"ID":"3"}',
-};
 
-// create variable to hold data returned by the Lambda function
+//variables that hold lambda responses
 var responseVal;
+var loginResponse;
+var isLoggedIn = false;
+var user;
+var getUserPromise;
+var firstName;
+var lastName;
+var userName;
+var password;
+var newUserResponse;
+
 
   //init
   window.onload = function() {
@@ -22,155 +28,159 @@ var responseVal;
     document.getElementById("user_div").style.display = "none";
 
 
-    //firebase AUTH content
-    // firebase.auth().onAuthStateChanged(function(user) {
-    //   if (user) {
-    //     // User is signed in.
-    //     document.getElementById("user_div").style.display = "block";
-    //     document.getElementById("login_form").style.display = "none";
+      if (isLoggedIn) {
+        document.getElementById("user_div").style.display = "block";
+        document.getElementById("login_form").style.display = "none";
 
-    //     var user = firebase.auth().currentUser;
+        if(user != null){
+          var email_id = user.email;
+          document.getElementById("user_para").innerHTML = "User Email : " + email_id;
+        }
 
-    //     if(user != null){
-
-    //       var email_id = user.email;
-    //       document.getElementById("user_para").innerHTML = "User Email : " + email_id;
-        
-    //     }
-    //   } else {
+      } else {
     //     // No user is signed in.
-    //     document.getElementById("login_form").style.display = "block";
-    //     document.getElementById("user_div").style.display = "none";
+        document.getElementById("login_form").style.display = "block";
+        document.getElementById("user_div").style.display = "none";
 
-    //   }
+      }
     // });
 
   }
 
 
-  function getUser() {
-    lambda.invoke(params, function(error, data) {
-      if (error) {
-        prompt(error, error.stack);
-      } else {
-        console.log('were somewhat in');
-        console.log('data: '+ data.Payload);
-        responseVal = JSON.parse(data.Payload);
-        console.log("responseVal: " + responseVal);
-      }
-    });
+  function getUser(userID) {
+
+    // create JSON object for getUser
+    var params = {
+      FunctionName : "getUserWeb",
+      InvocationType : "RequestResponse",
+      LogType : "None",
+      Payload : '{"ID":"'+String(userID)+'"}',
+    };
+
+    getUserPromise = new Promise((resolve, reject) => {
+      lambda.invoke(params, function(error, data) {
+        if (error) {
+          prompt(error, error.stack);
+          //debugger;
+          reject();
+        } else {
+          responseVal = JSON.parse(data.Payload);
+          user = responseVal[0];
+          // debugger;
+          resolve(user);
+        }
+      });
+      resolve();
+    })
+  }
+
+  function getUserFirstName(user) {
+    return user.userFirst;
   }
 
 
 function login(){
 
-//window.alert(user.uid)
   var userEmail = document.getElementById("email_field").value;
   var userPass = document.getElementById("password_field").value;
 
-  // firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
-  //   // Handle Errors here.
-  //   var errorCode = error.code;
-  //   var errorMessage = error.message;
+  var passHash = sha256(userPass);
 
-  //   window.alert("Error : " + errorMessage);
 
-  //   // ...
-  // });
+  // create JSON object for loginParams
+  var loginParams = {
+    FunctionName : "loginUser",
+    InvocationType : "RequestResponse",
+    LogType : "None",
+    Payload : '{"username":"'+String(userEmail)+
+              '","password":"'+String(passHash)+'"}',
+  };
 
-//START OF POST REQUEST
-var url = "https://antibuddies-274a7.web.app/index.html";
-var data = { "email":"ssmith@gmail.com"};
+  lambda.invoke(loginParams, function(error, data) {
+    if (error) {
+      prompt(error, error.stack);
+    } else {
+      console.log('data: '+ data.Payload);
+      loginResponse = JSON.parse(data.Payload);
 
-var xhr = new XMLHttpRequest();
-xhr.responseType = "json"; // xhr.response will be parsed into a JSON object
-xhr.open('GET', "https://antibuddies-274a7.web.app/index.html", true);
-xhr.send();
- 
-xhr.onreadystatechange = processRequest;
- 
-function processRequest(e) {
-    if (xhr.readyState == 4 && xhr.status == 200) {
-        alert(xhr.response.ip); // no parsing needed
+      //if login was successful
+      if (loginResponse.response) {
+        userID = loginResponse.ID;
+        console.log("UserID: " + userID);
+        // debugger;
+
+        //TODO getUser to work
+        getUserPromise
+          .then(function(user) {
+            console.log("User: "+user);
+            document.getElementById("getUserFirst").innerHTML = "Welcome " + getUserFirstName(user);
+        }, function() {
+            console.log("failed");
+        })
+        // debugger; 
+
+      
+      }
+      else {
+        //wrong login information
+        //TODO: Raise error
+      }
     }
-}
+  });
 
-
-// You REALLY want shouldBeAsync = true.
-// Otherwise, it'll block ALL execution waiting for server response.
-// var shouldBeAsync = true;
-
-//var request = new XMLHttpRequest();
-
-// Before we send anything, we first have to say what we will do when the
-// server responds. This seems backwards (say how we'll respond before we send
-// the request? huh?), but that's how Javascript works.
-// This function attached to the XMLHttpRequest "onload" property specifies how
-// the HTTP response will be handled. 
-//request.onload = function () {
-
-//   getText = function(url, callback) // How can I use this callback?
-// {
-//     var request = new XMLHttpRequest();
-//     request.onreadystatechange = function()
-//     {
-//         if (request.readyState == 4 && request.status == 200)
-//         {
-//             callback(request.responseText); // Another callback here
-//         }
-//     }; 
-//     request.open('GET', url);
-//     request.send();
-// }
-
-// function mycallback(data) {
-//    alert(data);
-// }
-
-// getText('', mycallback); //passing mycallback as a method
-
-   // Because of javascript's fabulous closure concept, the XMLHttpRequest "request"
-   // object declared above is available in this function even though this function
-   // executes long after the request is sent and long after this function is
-   // instantiated. This fact is CRUCIAL to the workings of XHR in ordinary
-   // applications.
-
-   // You can get all kinds of information about the HTTP response.
-  //  var status = request.status; // HTTP response status, e.g., 200 for "200 OK"
-  //  var data = request.responseText; // Returned data, e.g., an HTML document.
-//}
-
-// request.open(method, url, shouldBeAsync);
-
-//request.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-// Or... request.setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
-// Or... whatever
-
-// Actually sends the request to the server.
-// request.send(postData);
-
-// }
-
-// function newUser(){
-
-//   document.getElementById("firstname_para").innerHTML;
-
-//window.alert(user.uid)
-  
-
-  /*var userEmail = document.getElementById("email_field").value;
-  var userPass = document.getElementById("password_field").value;
-  firebase.auth().signInWithEmailAndPassword(userEmail, userPass).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    window.alert("Error : " + errorMessage);
-    // ...
-  });*/
+  directAfterLogin(user);
 
 }
 
-function Admin(){
+
+function addUser() {
+
+  //get all input values
+  firstName = document.getElementById("first_name_field").value;
+  lastName = document.getElementById("last_name_field").value;
+  userName = document.getElementById("user_name_field").value;
+  password = document.getElementById("create_password_field").value;
+  // debugger;
+
+  var passToStore = sha256(password);
+
+
+  var addUserParams = {
+    FunctionName : "createUser",
+    InvocationType : "RequestResponse",
+    LogType : "None",
+    Payload : '{"firstName":"'+String(firstName)+
+                '","lastName":"'+String(lastName)+
+                '","username":"'+String(userName)+
+                '","password":"'+String(passToStore)+
+                '"}',
+  };
+
+  lambda.invoke(addUserParams, function(error, data) {
+    if (error) {
+      prompt(error, error.stack);
+    } else {
+      console.log('newUser: '+ data.Payload);
+      newUserResponse = JSON.parse(data.Payload);
+      user = newUserResponse;
+
+      directAfterLogin(user);
+    }
+  });
+
+}
+
+function directAfterLogin(user) {
+
+  isLoggedIn = true;
+
+  document.getElementById("user_div").style.display = "block";
+  document.getElementById("login_form").style.display = "none";
+
+}
+
+function admin(){
   window.location.href="admin.html";
 }
 
@@ -226,21 +236,3 @@ function quiz(){
   window.location.href="quiz.html";
 }
 
-function newUserlogin(){
-  //window.alert(user.uid)
-  var userFirst = document.getElementById("firstname").value;
-  var userLast = document.getElementById("lastname").value;
-  var userEmail = document.getElementById("email").value;
-  var userPass = document.getElementById("password").value;
-
-
-  firebase.auth().signInWithEmailAndPassword(userFirst, userLast, userEmail, userPass).catch(function(error) {
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-
-    window.alert("Error : " + errorMessage);
-
-    // ...
-  });
-}
