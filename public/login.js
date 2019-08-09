@@ -20,6 +20,8 @@ var lastName;
 var userName;
 var password;
 var newUserResponse;
+var isLoading;
+var passToStore;
 
 
   //init
@@ -33,60 +35,75 @@ var newUserResponse;
         document.getElementById("login_form").style.display = "none";
 
         if(user != null){
-          var email_id = user.email;
-          document.getElementById("user_para").innerHTML = "User Email : " + email_id;
+          var user_name = user.userName;
+          document.getElementById("user_para").innerHTML = "User Name : " + user_name;
         }
 
       } else {
-    //     // No user is signed in.
-        document.getElementById("login_form").style.display = "block";
+      // No user is signed in.
         document.getElementById("user_div").style.display = "none";
 
       }
-    // });
 
   }
 
 
   function getUser(userID) {
 
+    var tempUser;
+
     // create JSON object for getUser
-    var params = {
+    var getUserParams = {
       FunctionName : "getUserWeb",
       InvocationType : "RequestResponse",
       LogType : "None",
       Payload : '{"ID":"'+String(userID)+'"}',
     };
 
-    getUserPromise = new Promise((resolve, reject) => {
-      lambda.invoke(params, function(error, data) {
+    var getUserPromise = new Promise((resolve, reject) => {
+      lambda.invoke(getUserParams, function(error, data) {
         if (error) {
           prompt(error, error.stack);
-          //debugger;
           reject();
         } else {
           responseVal = JSON.parse(data.Payload);
           user = responseVal[0];
-          // debugger;
           resolve(user);
         }
       });
-      resolve();
     })
+
+    getUserPromise
+    .then(function(user) {
+      console.log("User: "+user);
+      document.getElementById("getUserFirst").innerHTML = "Welcome " + String(getUserFirstName(user));
+
+      //just calling in user here because of async function happening when getting user
+      directAfterLogin(user);
+    }, function() {
+        console.log("failed");
+    })
+    if (tempUser) {
+      return tempUser;
+    }
+
   }
 
   function getUserFirstName(user) {
-    return user.userFirst;
+    return user.firstName;
   }
 
 
 function login(){
 
+  isLoading = true;
+
+  //get login input values
   var userEmail = document.getElementById("email_field").value;
   var userPass = document.getElementById("password_field").value;
 
+  //run a sha256 on the password so we can query it
   var passHash = sha256(userPass);
-
 
   // create JSON object for loginParams
   var loginParams = {
@@ -108,29 +125,17 @@ function login(){
       if (loginResponse.response) {
         userID = loginResponse.ID;
         console.log("UserID: " + userID);
-        // debugger;
-
-        //TODO getUser to work
-        getUserPromise
-          .then(function(user) {
-            console.log("User: "+user);
-            document.getElementById("getUserFirst").innerHTML = "Welcome " + getUserFirstName(user);
-        }, function() {
-            console.log("failed");
-        })
-        // debugger; 
-
-      
+        getUser(userID);
       }
       else {
         //wrong login information
         //TODO: Raise error
+        document.getElementById("user_div").style.display = "none";
       }
     }
   });
 
-  directAfterLogin(user);
-
+  isLoading = false;
 }
 
 
@@ -141,9 +146,8 @@ function addUser() {
   lastName = document.getElementById("last_name_field").value;
   userName = document.getElementById("user_name_field").value;
   password = document.getElementById("create_password_field").value;
-  // debugger;
-
-  var passToStore = sha256(password);
+  //debugger;
+  passToStore = sha256(password);
 
 
   var addUserParams = {
@@ -160,11 +164,14 @@ function addUser() {
   lambda.invoke(addUserParams, function(error, data) {
     if (error) {
       prompt(error, error.stack);
+      document.getElementById("user_div").style.display = "none";
+      //TODO: Show create user error
     } else {
       console.log('newUser: '+ data.Payload);
       newUserResponse = JSON.parse(data.Payload);
       user = newUserResponse;
-
+      var modal = document.getElementById("newuser_div");
+      modal.style.display = "none";//this is leaving the back blackground - can't click on anything
       directAfterLogin(user);
     }
   });
@@ -175,8 +182,12 @@ function directAfterLogin(user) {
 
   isLoggedIn = true;
 
-  document.getElementById("user_div").style.display = "block";
-  document.getElementById("login_form").style.display = "none";
+  if (user.isAdmin) {
+    window.location.href="admin.html";
+  } else {
+    document.getElementById("user_div").style.display = "block";
+    document.getElementById("login_form").style.display = "none";
+  }
 
 }
 
