@@ -223,3 +223,18 @@ hr.thin {
      .main-menu>li:hover, .sub-menu>li:hover{
           background: #43964D;
          }
+input[type='checkbox'] {
+    width:20px;
+    height:20px;
+}
+select {
+  font-family: "segoe-ui", "open-sans", tahoma, arial;
+  font-weight: 700;
+  color: #fff;
+  background: #353535;
+  margin: 30px;
+  padding: 30px;
+  font-size: 15px;
+  width: auto;
+  height: auto;
+}
