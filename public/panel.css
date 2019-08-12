@@ -238,3 +238,12 @@ select {
   width: auto;
   height: auto;
 }
+
+#section {
+  width: auto;
+  margin: 30px;
+  padding: 30px;
+  font-size: 15px;
+  width: 250px;
+  height: 85px;
+}
