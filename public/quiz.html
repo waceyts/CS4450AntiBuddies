@@ -3,19 +3,9 @@
 <html>
 <head>
     <title>Sample Quiz</title>
-    <script defer src="/__/firebase/6.0.4/firebase-app.js"></script>
-      <!-- include only the Firebase features as you need -->
-      <script defer src="/__/firebase/6.0.4/firebase-auth.js"></script>
-      <script defer src="/__/firebase/6.0.4/firebase-database.js"></script>
-      <script defer src="/__/firebase/6.0.4/firebase-storage.js"></script>
-      <!-- initialize the SDK after all desired features are loaded -->
-      <script defer src="/__/firebase/init.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase.js"></script>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
       <script type="text/javascript" src="js/bootstrap.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="panel.css">
     <script src="login.js"></script>
 </head>
@@ -81,23 +71,17 @@ var submitButton = document.getElementById('submit');
 generateQuiz(myQuestions, quizContainer, resultsContainer, submitButton);
 
 function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
-
     function showQuestions(questions, quizContainer){
         var output = [];
         var answers;
 
         for(var i=0; i<questions.length; i++){
-
             answers = [];
-
             for(letter in questions[i].answers){
-
                 answers.push('<label>' + '<input type="radio" name="question' + i + '" value="'+letter+'">' + letter + ': ' + questions[i].answers[letter] + '</label>');
             }
-
             output.push('<div class="question">' + questions[i].question + '</div>' + '<div class="answers">' + answers.join('') + '</div>');
         }
-
         quizContainer.innerHTML = output.join('');
     }
 
@@ -109,18 +93,13 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
         var numCorrect = 0;
         
         for(var i=0; i<questions.length; i++){
-
             userAnswer = (answerContainers[i].querySelector('input[name=question'+i+']:checked')||{}).value;
-
             if(userAnswer===questions[i].correctAnswer){
-
                 numCorrect++;
-
                 answerContainers[i].style.color = 'lightgreen';
             }
 
             else{
-
                 answerContainers[i].style.color = 'red';
                 if (userAnswer===questions[1].correctAnswer) {
                 window.alert("Correct response is B. Anti-Ch and anti-Rg can be neutralized by pooled human plasma because the Ch and Rg antigens reside on complement protein C4. Neutralization studies with pooled plasma can help confirm the antibody reactivity in a patient’s sample. (Source Harmening, 7th Edition, Chapter...)");
@@ -130,7 +109,6 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
                 }
             }
         }
-
         resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
     }
 
@@ -138,7 +116,6 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
 
     submitButton.onclick = function(){
         showResults(questions, quizContainer, resultsContainer);
-        
     }
 }
 </script>

@@ -25,8 +25,8 @@
 </div>
 <div id="quiz" class="outer">
     <div class="inner">
-        <form id="selected_course_quiz" name="frmText">
-            <select>
+        <form name="frmText">
+            <select id="selected_course_quiz">
                 <option value="" disabled="disabled" selected="selected">Please select a course</option>
                 <option value="1">Immunhematology</option>
                 <option value="2">Chemistry</option>
@@ -35,41 +35,36 @@
                 <option value="5">Immunology</option>
                 <option value="6">Urinalysis</option>
             </select>
-           <textarea id="section" placeholder="Enter your section here..."></textarea>
+           <textarea id="section_quiz" placeholder="Enter your section here..."></textarea>
             <div>
-                <div style="display:inline-block;">
                     <span class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="level_quiz_1" value="1">
                         <label class="form-check-label" for="exampleRadios1">
                             Beginner
                         </label>
                     </span>
                         <span class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="level_quiz_2" value="2">
                         <label class="form-check-label" for="exampleRadios2">
                             Intermediate
                         </label>
                     </span>
                         <span class="form-check disabled">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="level_quiz_3" value="3">
                         <label class="form-check-label" for="exampleRadios3">
                             Advanced
                         </label>
                     </span>
-                </div>
             </div>
-                <!-- <label for="a">Beginner</label><input type="checkbox" name="beginner" value="b">
-                <label for="a">Intermediate</label><input type="checkbox" name="intermediate" value="i">
-                <label for="a">Advanced</label><input type="checkbox" name="advanced" value="a"> -->
             <div>
-                <textarea name="form_text" rows="10" cols="40" placeholder="Enter your question here..."></textarea>
+                <textarea id="question_text_quiz" name="form_text" rows="10" cols="40" placeholder="Enter your question here..."></textarea>
             </div>
             <h5>Select correct answer</h5>
             <div class="options">
-                <span><input id="answer_a" type="radio" name="correctAnswer" value="a"><label for="a">a</label><input type="" id="" /></span>
-                <span><input id="answer_b" type="radio" name="correctAnswer" value="b"><label for="b">b</label><input type="" id="" /></span>
-                <span><input id="answer_c" type="radio" name="correctAnswer" value="c"><label for="c">c</label><input type="" id="" /></span>
-                <span><input id="answer_d" type="radio" name="correctAnswer" value="d"><label for="d">d</label><input type="" id="" /></span>
+                <span><input type="radio" id="check_answer_a" name="correctAnswer" value="0"><label for="a">a</label><input type="" id="answer_a" /></span>
+                <span><input type="radio" id="check_answer_b" name="correctAnswer" value="1"><label for="b">b</label><input type="" id="answer_b" /></span>
+                <span><input type="radio" id="check_answer_c" name="correctAnswer" value="2"><label for="c">c</label><input type="" id="answer_c" /></span>
+                <span><input type="radio" id="check_answer_d" name="correctAnswer" value="3"><label for="d">d</label><input type="" id="answer_d" /></span>
             </div>
             <div>
                 <textarea id="notes_quiz" name="form_text" rows="10" cols="40" placeholder="Enter additional notes...(ex. Correct answer is B, can be found on page: )"></textarea>

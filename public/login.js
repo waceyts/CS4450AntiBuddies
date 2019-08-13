@@ -41,15 +41,14 @@ var passToStore;
       } else {
       // No user is signed in.
         document.getElementById("user_div").style.display = "none";
-
       }
   }
 
 
   function getUser(userID) {
-
-    if (userID == undefined) {
-      //when we create a user
+    if (userID && user) {
+      //when we create a user and userID have the same value
+      //but we need to user userID.ID to get the value
       // create JSON object for getUser
       var getUserParams = {
         FunctionName : "getUserWeb",
@@ -58,7 +57,7 @@ var passToStore;
         Payload : '{"ID":"'+String(userID.ID)+'"}',
       };
     } else {
-      //when we login
+      //when we login we just need userID
       var getUserParams = {
         FunctionName : "getUserWeb",
         InvocationType : "RequestResponse",
@@ -84,7 +83,7 @@ var passToStore;
     getUserPromise
     .then(function(user) {
       if (user == undefined) {
-        console.log("failed");
+        console.log("failed at user undefined");
         //login failed message
       } else {
         console.log("User: "+ user);
@@ -94,7 +93,8 @@ var passToStore;
       }
       
     }, function() {
-        console.log("failed");
+
+        console.log("failed at default function");
     })
 
   }
@@ -140,6 +140,7 @@ function login(){
       else {
         //wrong login information
         //TODO: Raise error
+        alert("Something went wrong, try again");
         document.getElementById("user_div").style.display = "none";
       }
     }
@@ -174,7 +175,7 @@ function addUser() {
     if (error) {
       prompt(error, error.stack);
       document.getElementById("user_div").style.display = "none";
-      //TODO: Show create user error
+      alert("Question could not be created - Please try again");
     } else {
       console.log('newUser: '+ data.Payload);
       newUserResponse = JSON.parse(data.Payload);
@@ -185,6 +186,18 @@ function addUser() {
   });
 
 }
+
+function getPracticeQuestions() {
+  var myQuestions = [ {} ];
+
+  //courseID is a static 3 right now because it's the only course available
+  //need to put in home.html after each course page (ex Immunhematology.html) 
+  //get difficulty from course page
+
+  //make a request to get the practice questions
+
+}
+
 
 function directAfterLogin(user) {
 
@@ -199,25 +212,85 @@ function directAfterLogin(user) {
 }
 
 function submitNewQuestion() {
+
   var course = document.getElementById("selected_course_quiz").selectedIndex;
-  console.log(course);
+  console.log("Course: " + course);
 
+  var section = document.getElementById("section_quiz").value;
+  console.log("Section: " + section);
 
-  var questionText = document.getElementById("question_text_quiz").value();
-  console.log(questionText);
+  //level
+  var level;
+  if (document.getElementById("level_quiz_1").checked == true) {
+    level = "1";
+  } else if (document.getElementById("level_quiz_2").checked == true) {
+    level = "2";
+  } else {
+    level = "3";
+  }
+  console.log("Level: " + level);
+
+  var questionText = document.getElementById("question_text_quiz").value;
+  console.log("Question text: " + questionText);
+
+  //get text answers
+  var answer_a_txt = document.getElementById("answer_a").value;
+  console.log("Answer a: " + answer_a_txt);
+  var answer_b_txt = document.getElementById("answer_b").value;
+  console.log("Answer b: " + answer_b_txt);
+  var answer_c_txt = document.getElementById("answer_c").value;
+  console.log("Answer c: " + answer_c_txt);
+  var answer_d_txt = document.getElementById("answer_d").value;
+  console.log("Answer d: " + answer_d_txt);
 
   var corr_answer;
-  if (document.getElementById("answer_a").checked = true) {
-    corr_answer = "a";
-  } else if (document.getElementById("answer_b").checked = true) {
-    corr_answer = "b";
-  } else if (document.getElementById("answer_c").checked = true) {
-    corr_answer = "c";
+  if (document.getElementById("check_answer_a").checked == true) {
+    corr_answer = '0';
+  } else if (document.getElementById("check_answer_b").checked == true) {
+    corr_answer = '1';
+  } else if (document.getElementById("check_answer_c").checked == true) {
+    corr_answer = '2';
   } else {
-    corr_answer = "d";
+    corr_answer = '3';
   }
+  console.log("Correct answer: " + corr_answer);
 
-  var notes = document.getElementById("notes_quiz").value();
+  var notes = document.getElementById("notes_quiz").value;
+  console.log("Notes: " + notes);
+
+  var createQuestionParams = {
+    FunctionName : "createPracticeQuestion",
+    InvocationType : "RequestResponse",
+    LogType : "None",
+    Payload : '{"citemID":"'+String("3")+
+                '","section":"'+String(section)+
+                '","question":"'+String(questionText)+
+                '","difficulty":"'+String(level)+
+                '","correctAnswer":"'+String(corr_answer)+
+                '","answerDesc":"'+String(notes)+
+                '","answer1":"'+String(answer_a_txt)+
+                '","answer2":"'+String(answer_b_txt)+
+                '","answer3":"'+String(answer_c_txt)+
+                '","answer4":"'+String(answer_d_txt)+
+                '","num1":"'+String("0")+
+                '","num2":"'+String("1")+
+                '","num3":"'+String("2")+
+                '","num4":"'+String("3")+
+                '"}',
+  };
+
+  lambda.invoke(createQuestionParams, function(error, data) {
+    if (error) {
+      prompt(error, error.stack);
+      alert("Question could not be created - Please try again");
+      //TODO: Show create user error
+    } else {
+      console.log("newQuestion: "+ data.Payload);
+      newUserResponse = JSON.parse(data.Payload);
+      alert("Your question was successfully created!");
+      window.location.href="admin.html";
+    }
+  });
   
 }
 
