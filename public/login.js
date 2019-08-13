@@ -27,8 +27,7 @@ var passToStore;
   //init
   window.onload = function() {
     // inititally hide the user welcome
-    document.getElementById("user_div").style.display = "none";
-
+    // document.getElementById("user_div").style.display = "none";
 
       if (isLoggedIn) {
         document.getElementById("user_div").style.display = "block";
@@ -44,23 +43,32 @@ var passToStore;
         document.getElementById("user_div").style.display = "none";
 
       }
-
   }
 
 
   function getUser(userID) {
 
-    var tempUser;
-
-    // create JSON object for getUser
-    var getUserParams = {
-      FunctionName : "getUserWeb",
-      InvocationType : "RequestResponse",
-      LogType : "None",
-      Payload : '{"ID":"'+String(userID)+'"}',
-    };
+    if (userID == undefined) {
+      //when we create a user
+      // create JSON object for getUser
+      var getUserParams = {
+        FunctionName : "getUserWeb",
+        InvocationType : "RequestResponse",
+        LogType : "None",
+        Payload : '{"ID":"'+String(userID.ID)+'"}',
+      };
+    } else {
+      //when we login
+      var getUserParams = {
+        FunctionName : "getUserWeb",
+        InvocationType : "RequestResponse",
+        LogType : "None",
+        Payload : '{"ID":"'+String(userID)+'"}',
+      };
+    }
 
     var getUserPromise = new Promise((resolve, reject) => {
+
       lambda.invoke(getUserParams, function(error, data) {
         if (error) {
           prompt(error, error.stack);
@@ -75,17 +83,19 @@ var passToStore;
 
     getUserPromise
     .then(function(user) {
-      console.log("User: "+user);
-      document.getElementById("getUserFirst").innerHTML = "Welcome " + String(getUserFirstName(user));
-
-      //just calling in user here because of async function happening when getting user
-      directAfterLogin(user);
+      if (user == undefined) {
+        console.log("failed");
+        //login failed message
+      } else {
+        console.log("User: "+ user);
+        document.getElementById("getUserFirst").innerHTML = "Welcome " + String(getUserFirstName(user));
+        //just calling in user here because of async function happening when getting user
+        directAfterLogin(user);
+      }
+      
     }, function() {
         console.log("failed");
     })
-    if (tempUser) {
-      return tempUser;
-    }
 
   }
 
@@ -146,9 +156,8 @@ function addUser() {
   lastName = document.getElementById("last_name_field").value;
   userName = document.getElementById("user_name_field").value;
   password = document.getElementById("create_password_field").value;
-  //debugger;
-  passToStore = sha256(password);
 
+  passToStore = sha256(password);
 
   var addUserParams = {
     FunctionName : "createUser",
@@ -157,7 +166,7 @@ function addUser() {
     Payload : '{"firstName":"'+String(firstName)+
                 '","lastName":"'+String(lastName)+
                 '","username":"'+String(userName)+
-                '","password":"'+String(passToStore)+
+                '","pass":"'+String(passToStore)+
                 '"}',
   };
 
@@ -171,8 +180,7 @@ function addUser() {
       newUserResponse = JSON.parse(data.Payload);
       user = newUserResponse;
       var modal = document.getElementById("newuser_div");
-      modal.style.display = "none";//this is leaving the back blackground - can't click on anything
-      directAfterLogin(user);
+      getUser(user);
     }
   });
 
@@ -181,14 +189,36 @@ function addUser() {
 function directAfterLogin(user) {
 
   isLoggedIn = true;
-
-  if (user.isAdmin) {
+  if (user.isAdmin == "true") {
     window.location.href="admin.html";
   } else {
     document.getElementById("user_div").style.display = "block";
     document.getElementById("login_form").style.display = "none";
   }
 
+}
+
+function submitNewQuestion() {
+  var course = document.getElementById("selected_course_quiz").selectedIndex;
+  console.log(course);
+
+
+  var questionText = document.getElementById("question_text_quiz").value();
+  console.log(questionText);
+
+  var corr_answer;
+  if (document.getElementById("answer_a").checked = true) {
+    corr_answer = "a";
+  } else if (document.getElementById("answer_b").checked = true) {
+    corr_answer = "b";
+  } else if (document.getElementById("answer_c").checked = true) {
+    corr_answer = "c";
+  } else {
+    corr_answer = "d";
+  }
+
+  var notes = document.getElementById("notes_quiz").value();
+  
 }
 
 function admin(){

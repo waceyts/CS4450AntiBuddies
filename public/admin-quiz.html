@@ -25,7 +25,7 @@
 </div>
 <div id="quiz" class="outer">
     <div class="inner">
-        <form id="txt_form" name="frmText">
+        <form id="selected_course_quiz" name="frmText">
             <select>
                 <option value="" disabled="disabled" selected="selected">Please select a course</option>
                 <option value="1">Immunhematology</option>
@@ -42,26 +42,47 @@
                 <option value="3">Ch. 11-15</option>
                 <option value="4">Ch. 16-20</option>
             </select>
+            
             <div>
-                <label for="a">Beginner</label><input type="checkbox" name="beginner" value="b">
-                <label for="a">Intermediate</label><input type="checkbox" name="intermediate" value="i">
-                <label for="a">Advanced</label><input type="checkbox" name="advanced" value="a">
+                <div style="display:inline-block;">
+                    <span class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1">
+                        <label class="form-check-label" for="exampleRadios1">
+                            Beginner
+                        </label>
+                    </span>
+                        <span class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                        <label class="form-check-label" for="exampleRadios2">
+                            Intermediate
+                        </label>
+                    </span>
+                        <span class="form-check disabled">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+                        <label class="form-check-label" for="exampleRadios3">
+                            Advanced
+                        </label>
+                    </span>
+                </div>
             </div>
+                <!-- <label for="a">Beginner</label><input type="checkbox" name="beginner" value="b">
+                <label for="a">Intermediate</label><input type="checkbox" name="intermediate" value="i">
+                <label for="a">Advanced</label><input type="checkbox" name="advanced" value="a"> -->
             <div>
-                <textarea name="form_text" rows="10" cols="40" placeholder="Enter you question here..."></textarea>
+                <textarea id="question_text_quiz" name="form_text" rows="10" cols="40" placeholder="Enter you question here..."></textarea>
             </div>
             <h5>Select correct answer</h5>
             <div class="options">
-                <span><input type="radio" name="correctAnswer" value="a"><label for="a">a</label><input type="" id="" /></span>
-                <span><input type="radio" name="correctAnswer" value="b"><label for="b">b</label><input type="" id="" /></span>
-                <span><input type="radio" name="correctAnswer" value="c"><label for="c">c</label><input type="" id="" /></span>
-                <span><input type="radio" name="correctAnswer" value="d"><label for="d">d</label><input type="" id="" /></span>
+                <span><input id="answer_a" type="radio" name="correctAnswer" value="a"><label for="a">a</label><input type="" id="" /></span>
+                <span><input id="answer_b" type="radio" name="correctAnswer" value="b"><label for="b">b</label><input type="" id="" /></span>
+                <span><input id="answer_c" type="radio" name="correctAnswer" value="c"><label for="c">c</label><input type="" id="" /></span>
+                <span><input id="answer_d" type="radio" name="correctAnswer" value="d"><label for="d">d</label><input type="" id="" /></span>
             </div>
             <div>
-                <textarea name="form_text" rows="10" cols="40" placeholder="Enter additional notes...(ex. Correct answer is B, can be found on page: )"></textarea>
+                <textarea id="notes_quiz" name="form_text" rows="10" cols="40" placeholder="Enter additional notes...(ex. Correct answer is B, can be found on page: )"></textarea>
             </div>
         </form>
-        <button id="submit">Submit</button>
+        <button onclick="submitNewQuestion()" id="submit">Submit</button>
     </div>
 </div>
 <div id="results"></div>
