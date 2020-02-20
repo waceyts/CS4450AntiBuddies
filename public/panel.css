@@ -1,46 +1,27 @@
-html{
+html {
 
   zoom: 100%;
 }
 
-body{
+body {
     background: #353535;
     padding: 0px;
     margin: 40px;
-	font-family: "Helvetica", "open-sans";
-    font-size: 20px;    
+    font-family: "segoe-ui", "open-sans", tahoma, arial;
+    font-size: 15px;
+    align-content: center;
     color: #FFF;
 }
 
-#wsuloginlogo {
-  width: 100px;
-  /*margin-left: auto;
-  margin-right: auto;*/
-  display: block;
-  margin-bottom: 10px;
-}
-
-h1{
-	 
+ h1 {
   margin-bottom: 30px;
   text-align: center;
   /* text-transform: uppercase; */
   /* font-size: 40px; */
   color: #fff;
 }
-h3{
-  white-space: nowrap;
-  text-align: center;
-  font-size: 75px;
-  margin-bottom: 40px;
-  padding: 30px;
-}
-.row{
-	text-align: center;
-	display: block;
-}
 
-button{	  
+  button {
   margin-top: 20px;
   background: #421663;
   color: #fff;
@@ -54,10 +35,41 @@ button{
   width:200px;
 
 }
-button:hover{
+
+h3 {
+  margin-bottom: 40px;
+}
+
+button:hover {
   background: #43964D;
   color: #fff;
   cursor: pointer;
+}
+
+.outer
+{
+    width:100%;
+    text-align: center;
+    background: #282828;
+}
+.inner
+{
+    display: inline-block;
+    padding: 10px;
+}
+
+
+.question{
+    font-weight: 600;
+}
+.answers {
+    margin-bottom: 20px;
+    padding: 20px;
+}
+label {
+  padding: 10px;
+ display: inline-block;
+ font-size: 20px;
 }
 
 #submit{
@@ -78,106 +90,61 @@ button:hover{
     -moz-transition: 0.3s;
 }
 #submit:hover{
-  background: #a46ef0;
+   background: #43964D;
   color: #fff;
   cursor: pointer;
- 
-}
-.subbtn{
-	text-align: center;
-}
-.outer{
-    width:100%;
-    text-align: left;
-    background: #282828;
 }
 
-.inner{
-    display: inline-block;
-    padding: 10px;
-}
-
-
-.question{
-    font-weight: 600;
-}
-.answers{
-    margin-bottom: 20px;
-    padding: 20px;
-}
-
-
-label{
-  padding: 10px;
- display: inline-block;
- font-size: 20px;
-}
-
-
-
-a{
+a {
   text-decoration: none;
-  color: white;
-}
-a:visited{
-	color: white;
 }
 
-.panel-btn{
+.panel-btn {
     padding: 10px 40px !important;
     color: #DFa801 !important;
 }
-.panel-btn:active{
-    background-color: yellow;
-}
 
-.panel-btn:hover{
-    background-color: #fcfbb0;
-    transition: 0.1s;
-    -webkit-transition: 0.1s;
-    -moz-transition: 0.1s;
-}
-
-.container{
+.container {
     background-color: #353535;
 }
 
-.each-row{
+.each-row {
     padding: 40px;
 }
 
-.header{	
+.header {
     color: white;
     padding-top: 1%;
     padding-bottom: 1%;
 }
-input[type='radio']{ 
+input[type='radio'] { 
   transform: scale(2); 
   background: #282828;
 }
 
-textarea, input{
+textarea, input {
   background: #353535;
   color: #FFF;
   margin: 15px;
   padding: 20px;
   font-family: "segoe-ui", "open-sans", tahoma, arial;
   font-weight: 700;
+
 }
-textarea{
+textarea {
   width: 100%;
 }
-input{
+input {
   margin-left:20px;
 }
 
 
-hr{
+hr {
     background-color: white;
     padding-top: 1%;
 }
 
-hr.thin{
+hr.thin {
     height: 1px;
     border: 0;
     color: #333;
@@ -185,72 +152,82 @@ hr.thin{
     width: 80%;
 }
 
+.panel-btn:active {
+    background-color: yellow;
+}
 
+.panel-btn:hover {
+    background-color: #fcfbb0;
+    transition: 0.1s;
+    -webkit-transition: 0.1s;
+    -moz-transition: 0.1s;
+}
 
 .nav{
         padding: 10px 0px;
-}
+      }
 
-.main-menu>li{
-    display: inline-block;
-    width: 150px;
-    padding: 10px 0px;
-    margin-left: 10px;
-    text-align: center;
-    color: white;
-    font-size: 20px;
-    border-left: 1px solid white;
-    transition: .4s;
-    cursor: pointer;
-    box-sizing: border-box;
-}
+         .main-menu>li{
+          display: inline-block;
+          width: 150px;
+          padding: 10px 0px;
+          margin-left: 10px;
+          text-align: center;
+          color: white;
+          font-size: 20px;
+          border-left: 1px solid white;
+          transition: .4s;
+          cursor: pointer;
+          box-sizing: border-box;
+
+         }
          
-.main-menu li:hover .sub-menu{
-	
-    display: block;
-}
+         .main-menu li:hover .sub-menu{
+              display: block;
+         }
  
-.sub-menu{
-    display: none;
-    position: absolute;
-    padding: 0px;
-    margin-top: 30px;
-    margin-left: -10px; 
-    float: left;
-    width: 300px; 
-    text-align: left;
-    box-sizing: border-box;
-    border: 5px solid white;
-    box-shadow: 1px 1px 1px grey;
-}
+         .sub-menu{
+          display: none;
+          position: absolute;
+          padding: 0px;
+          margin-top: 30px;
+          margin-left: -10px; 
+          float: left;
+          width: 300px; 
+          text-align: left;
+          box-sizing: border-box;
+          border: 5px solid white;
+          box-shadow: 1px 1px 1px grey;
+          
+       
+         }
 
-.sub-menu:before{
-    content:"";
-    width: 0px;
-    height:0px;
-	border-left:20px solid transparent;
-	border-right:20px solid transparent;
-	border-bottom:30px solid white;
-	position: absolute;
-	margin:-30px 0px 0px 60px;
-}
+         .sub-menu:before{
+                 content:"";
+                 width: 0px;
+                 height:0px;
+                 border-left:20px solid transparent;
+                 border-right:20px solid transparent;
+                 border-bottom:30px solid white;
+                 position: absolute;
+                 margin:-30px 0px 0px 60px;
+         }
 
-.sub-menu li{
-	list-style-type: none;
-	padding: 10px;
-	color: #000000;
-	font-size: 20px;
-	background: #421663;
-}
-.main-menu>li:hover, .sub-menu>li:hover{
-    background: #a46ef0;
-}
-
-input[type='checkbox']{
+         .sub-menu li{
+          list-style-type: none;
+          padding: 10px;
+          color: #000000;
+          font-size: 20px;
+          background: #421663;
+         }
+     .main-menu>li:hover, .sub-menu>li:hover{
+          background: #43964D;
+         }
+input[type='checkbox'] {
     width:20px;
     height:20px;
 }
-select{
+select {
   font-family: "segoe-ui", "open-sans", tahoma, arial;
   font-weight: 700;
   color: #fff;
@@ -262,7 +239,7 @@ select{
   height: auto;
 }
 
-#section{
+#section {
   width: auto;
   margin: 30px;
   padding: 30px;
