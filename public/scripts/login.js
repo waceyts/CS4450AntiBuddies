@@ -24,6 +24,14 @@ var isLoading;
 var passToStore;
 
 
+
+/*  USER INFORMATION   
+/////////////////////
+/////////////////////
+/////////////////////
+*/
+
+
   //init
   window.onload = function() {
     // inititally hide the user welcome
@@ -149,7 +157,7 @@ function login(){
   isLoading = false;
 }
 
-
+//Adds a new user to lambda
 function addUser() {
 
   //get all input values
@@ -186,6 +194,9 @@ function addUser() {
   });
 
 }
+/* END OF USER SECTION*/
+////////////////////////
+////////////////////////
 
 function getPracticeQuestions() {
   var myQuestions = [ {} ];
@@ -211,7 +222,48 @@ function directAfterLogin(user) {
 
 }
 
+//this will be when the edit button is pressed in the admin quiz page
+function editQuestion() 
+{
+    
+}
+
 function submitNewQuestion() {
+     var getQuestions = {
+    FunctionName : "getQuestions",
+    InvocationType : "RequestResponse",
+    LogType : "None",
+    Payload : '{"citemID":"'+String("3")+
+                '","section":"'+String(section)+
+                '","question":"'+String(questionText)+
+                '","difficulty":"'+String(level)+
+                '","correctAnswer":"'+String(corr_answer)+
+                '","answerDesc":"'+String(notes)+
+                '","answer1":"'+String(answer_a_txt)+
+                '","answer2":"'+String(answer_b_txt)+
+                '","answer3":"'+String(answer_c_txt)+
+                '","answer4":"'+String(answer_d_txt)+
+                '","num1":"'+String("0")+
+                '","num2":"'+String("1")+
+                '","num3":"'+String("2")+
+                '","num4":"'+String("3")+
+                '"}',
+  };
+
+  lambda.invoke(createQuestionParams, function(error, data) {
+    if (error) {
+      prompt(error, error.stack);
+      alert("Question could not be created - Please try again");
+      //TODO: Show create user error
+    } else {
+      console.log("newQuestion: "+ data.Payload);
+      newUserResponse = JSON.parse(data.Payload);
+      alert("Your question was successfully created!");
+      window.location.href="admin.html";
+    }
+  });
+  */
+    /*
 
   var course = document.getElementById("selected_course_quiz").selectedIndex;
   console.log("Course: " + course);
@@ -291,7 +343,7 @@ function submitNewQuestion() {
       window.location.href="admin.html";
     }
   });
-  
+  */
 }
 
 function admin(){

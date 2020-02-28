@@ -35,19 +35,7 @@
         choose();
         
         showResults();
-        
-        // If no user selection, progress is stopped
-        
-        //TODO check for all questions to be answered
-        /*if (isNaN(selections[questionCounter])) 
-        {
-            alert('Please make a selection!');
-        } 
-        else 
-        {
-            questionCounter++;
-            displayQuestions();
-        }*/
+
     });
     
     
