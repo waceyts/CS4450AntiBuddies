@@ -148,6 +148,8 @@ function login(){
       else {
         //wrong login information
         //TODO: Raise error
+          
+          console.log("log in failed");
         alert("Something went wrong, try again");
         document.getElementById("user_div").style.display = "none";
       }
@@ -262,7 +264,18 @@ function submitNewQuestion() {
       window.location.href="admin.html";
     }
   });
-  */
+    
+    
+    //THIS IS WHERE YOU LEFT OFF
+  /*
+    var questions = {
+        FunctionName : "getPracticeQuestions",
+        InvocationType : "RequestRequest",
+        LogType: "None",
+        Payload : '{"CourseID":"'+String"3"}'
+    }
+    */
+    
     /*
 
   var course = document.getElementById("selected_course_quiz").selectedIndex;
@@ -401,4 +414,14 @@ function advanced(){
 function quiz(){
   window.location.href="quiz.html";
 }
+
+
+
+
+
+
+
+
+
+
 
