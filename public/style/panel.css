@@ -122,6 +122,14 @@ button:hover {
 	color: #fff;
 	cursor: pointer;
 }
+#addQuestionButton{
+	background: #282828;
+}
+#addQuestionButton:hover {
+	background: #a46ef0;
+	color: #fff;
+	cursor: pointer;
+}
 #submit{
     font-size: 20px;
     background: #421663;
@@ -187,7 +195,7 @@ button:hover {
     -moz-transition: 0.3s;
 }
 #delete:hover{
-	background: #a46ef0;
+	background: #f72020;
 	color: #fff;
 	cursor: pointer;
 }
