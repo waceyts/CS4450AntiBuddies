@@ -21,7 +21,7 @@
         
         choose();
         
-        showResults();
+        //showResults();
     });
     
     

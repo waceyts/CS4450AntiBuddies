@@ -202,13 +202,79 @@ function addUser() {
 
 function getPracticeQuestions() {
   var myQuestions = [ {} ];
+    var difficulty = "1";
+    var courseID = "1";
+
+
+  // create JSON object for loginParams
+  var loginParams = {
+    FunctionName : "getPracticeQuestions",
+    InvocationType : "RequestResponse",
+    LogType : "None",
+    Payload : '{"courseID":"'+String(courseID)+
+              '","difficulty":"'+String(difficulty)+'"}',
+  };
+
+  lambda.invoke(loginParams, function(error, data) {
+    if (error) {
+      prompt(error, error.stack);
+    } else {
+      console.log('data: '+ data.Payload);
+      loginResponse = JSON.parse(data.Payload);
+
+      //if login was successful
+      if (loginResponse.response) {
+        userID = loginResponse.ID;
+        console.log("UserID: " + userID);
+        getUser(userID);
+      }
+      else {
+        //wrong login information
+        //TODO: Raise error
+          
+          console.log("log in failed");
+        alert("Something went wrong, try again");
+        document.getElementById("user_div").style.display = "none";
+      }
+    }
+  });
+
+
 
   //courseID is a static 3 right now because it's the only course available
   //need to put in home.html after each course page (ex Immunhematology.html) 
   //get difficulty from course page
 
   //make a request to get the practice questions
-
+   /* var questionsParams = {
+        FunctionName : "getPracticeQuestions",
+        InvocationType : "RequestResponse",
+        LogType: "None",
+        Payload : '{"CourseID":"'+String("3")+
+                '","difficulty":"'+String("2")+
+                '"}'
+        
+    };
+    
+    lambda.invoke(questionsParams, function(error, data)
+    {
+        if(error) {
+            prompt(error, error.stack);
+        } else
+            {
+                console.log('data: ' + data.Payload);
+                questionresponse = JSON.parse(data.Payload);
+                
+                if(questionresponse.response) {
+                    questionss = questionresponse.PracticeQuestions;
+                    console.log("Questions: " + questionss + "WORKED");
+                }
+                else
+                    {
+                        console.log("FAILED QUESTIONS")
+                    }
+            }
+    })*/
 }
 
 
@@ -227,56 +293,11 @@ function directAfterLogin(user) {
 //this will be when the edit button is pressed in the admin quiz page
 function editQuestion() 
 {
-    
+
 }
 
 function submitNewQuestion() {
-     var getQuestions = {
-    FunctionName : "getQuestions",
-    InvocationType : "RequestResponse",
-    LogType : "None",
-    Payload : '{"citemID":"'+String("3")+
-                '","section":"'+String(section)+
-                '","question":"'+String(questionText)+
-                '","difficulty":"'+String(level)+
-                '","correctAnswer":"'+String(corr_answer)+
-                '","answerDesc":"'+String(notes)+
-                '","answer1":"'+String(answer_a_txt)+
-                '","answer2":"'+String(answer_b_txt)+
-                '","answer3":"'+String(answer_c_txt)+
-                '","answer4":"'+String(answer_d_txt)+
-                '","num1":"'+String("0")+
-                '","num2":"'+String("1")+
-                '","num3":"'+String("2")+
-                '","num4":"'+String("3")+
-                '"}',
-  };
-
-  lambda.invoke(createQuestionParams, function(error, data) {
-    if (error) {
-      prompt(error, error.stack);
-      alert("Question could not be created - Please try again");
-      //TODO: Show create user error
-    } else {
-      console.log("newQuestion: "+ data.Payload);
-      newUserResponse = JSON.parse(data.Payload);
-      alert("Your question was successfully created!");
-      window.location.href="admin.html";
-    }
-  });
-    
-    
-    //THIS IS WHERE YOU LEFT OFF
-  /*
-    var questions = {
-        FunctionName : "getPracticeQuestions",
-        InvocationType : "RequestRequest",
-        LogType: "None",
-        Payload : '{"CourseID":"'+String"3"}'
-    }
-    */
-    
-    /*
+     
 
   var course = document.getElementById("selected_course_quiz").selectedIndex;
   console.log("Course: " + course);
@@ -350,13 +371,14 @@ function submitNewQuestion() {
       alert("Question could not be created - Please try again");
       //TODO: Show create user error
     } else {
+        console.log(data.FunctionName);
       console.log("newQuestion: "+ data.Payload);
       newUserResponse = JSON.parse(data.Payload);
       alert("Your question was successfully created!");
       window.location.href="admin.html";
     }
   });
-  */
+  
 }
 
 function admin(){

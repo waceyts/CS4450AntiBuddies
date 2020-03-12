@@ -44,7 +44,7 @@
         </div>
         
         
-        <!--
+        
         <form name="frmText">
             <select id="selected_course_quiz">
                 <option value="" disabled="disabled" selected="selected">Please select a course</option>
@@ -89,8 +89,10 @@
             <div>
                 <textarea id="notes_quiz" name="form_text" rows="10" cols="40" placeholder="Enter additional notes...(ex. Correct answer is B, can be found on page: )"></textarea>
             </div>
-        </form>-->
+        </form>
         <button onclick="submitNewQuestion()" id="submit">Submit</button>
+        
+        <button onclick="getPracticeQuestions()" id="get">Questions</button>
     </div>
 </div>
 <div id="results"></div>
@@ -103,7 +105,7 @@
     </div>
 </footer>
     
-        <script type="text/javascript" src='questions.json'></script>
+        
 		<script type='text/javascript' src='quiz.js'></script>
     
 </body>
