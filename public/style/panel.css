@@ -124,6 +124,7 @@ button:hover {
 }
 #addQuestionButton{
 	background: #282828;
+	border-radius: 5px;
 }
 #addQuestionButton:hover {
 	background: #a46ef0;
@@ -221,6 +222,10 @@ button:hover {
 	color: #fff;
 	cursor: pointer;
 }
+#logButt:hover{
+	background: #a46ef0;
+	border-radius: 5px;
+}
 .panel-btn {
     padding: 10px 40px !important;
     color: #DFa801 !important;
@@ -245,6 +250,7 @@ a:visited{
 }
 .nav{
     padding: 10px 0px;
+	border-radius: 5px;
 }
 .main-menu>li{
     display: inline-block;
@@ -254,7 +260,8 @@ a:visited{
     text-align: center;
     color: white;
     font-size: 20px;
-    border-left: 1px solid white;
+    /*border-left: 1px solid white;*/
+	border-radius: 5px;
     transition: .4s;
     cursor: pointer;
     box-sizing: border-box;
