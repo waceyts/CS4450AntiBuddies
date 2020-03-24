@@ -23,6 +23,8 @@ var newUserResponse;
 var isLoading;
 var passToStore;
 
+var myQuestions = [ {} ];
+var adminquiz = $('#currentQuiz');
 
 
 /*  USER INFORMATION   
@@ -194,19 +196,95 @@ function addUser() {
       getUser(user);
     }
   });
+    
+    
+function directAfterLogin(user) {
+
+  isLoggedIn = true;
+  if (user.isAdmin == "true") {
+    window.location.href="admin.html";
+  } else {
+    document.getElementById("user_div").style.display = "block";
+    document.getElementById("login_form").style.display = "none";
+  }
 
 }
+}
+
+
+
+
 /* END OF USER SECTION*/
 ////////////////////////
 ////////////////////////
 
+
+
+/* ADMIN QUIZ SECTION  */
+////////////////////////
+///////////////////////
+
 function getPracticeQuestions() {
+<<<<<<< Updated upstream
   var myQuestions = [ {} ];
+=======
+  //var myQuestions = [ {} ];
+    var difficulty = "1";
+    var courseID = "1";
 
-  //courseID is a static 3 right now because it's the only course available
-  //need to put in home.html after each course page (ex Immunhematology.html) 
-  //get difficulty from course page
 
+  // create JSON object for loginParams
+  var loginParams = {
+    FunctionName : "getPracticeQuestions",
+    InvocationType : "RequestResponse",
+    LogType : "None",
+    Payload : '{"courseID":"'+String(courseID)+
+              '","difficulty":"'+String(difficulty)+'"}',
+  };
+
+  lambda.invoke(loginParams, function(error, data) {
+    if (error) {
+      prompt(error, error.stack);
+    } else {
+     
+      myQuestions = JSON.parse(data.Payload);
+        console.log(myQuestions);
+        editQuizStart(myQuestions);
+       
+    }
+  });
+
+    
+}
+
+//for admin quiz page, to be used to determine if there is already a quiz to edit
+>>>>>>> Stashed changes
+
+    $(function()
+      {
+      function editQuizStart(questions)
+    {
+        adminquiz.fadeOut(function() 
+        {
+            var questionlength = questions.length;
+            
+            console.log("you are in");
+            
+            for (var i = 0; i < questionlength; i++)
+            {
+                var nextQuestion = $('<div>', { id: 'question'+i});
+            
+                
+                //add buttons for edit or remove per question
+                var deletebutton = $('<input type="button" class="btns" id="delete" name="btnsdele"  value="Delete" /> ');
+                nextQuestion.append(deletebutton);
+                
+                
+                
+                var editbutton = $('<input type="button" class="btns" id="edit" onClick="editQuestion('+i+')" value="Edit"/>');
+                nextQuestion.append(editbutton);
+
+<<<<<<< Updated upstream
   //make a request to get the practice questions
 
 }
@@ -229,6 +307,75 @@ function editQuestion()
 {
     
 }
+=======
+                
+                var header = $('<h2>Question ' + (i + 1) + ':</h2>');
+                
+                nextQuestion.append(header);
+                
+                var question = $('<p>').append(questions[i].question);
+                nextQuestion.append(question);
+                
+                
+                adminquiz.append(nextQuestion).fadeIn();
+                
+                var answersh = viewAnswers(i);
+                adminquiz.append(answersh);
+                
+               var deleteButtons = document.getElementsByName("btnsdele");
+                console.log(deleteButtons);
+
+                    
+                
+            }
+            
+            
+        });
+    }
+    
+    
+    function viewAnswers(index)
+    {
+        var questionList = $('<ul>');
+        var item;
+        var input = '';
+        var count = 0;
+        
+        answers = [];
+        
+        for (letter in questions[index].choices)
+            {
+                /*
+                item = $('<li>');
+                input = '<p name="answer'+letter+'" id="'+index+letter+'">' + letter + ': ';
+                input += questions[index].choices[letter];
+                item.append(input);
+                questionList.append(item);
+                */
+                //
+                if(letter == questions[index].correctAnswer)
+                {
+                    item = $('<li>');
+                    input = '<p name="answer'+letter+'" id="CorrectAnswer">' + letter + ': ';
+                    input += questions[index].choices[letter];
+                    item.append(input);
+                    questionList.append(item);
+                }
+                else
+                {
+                    item = $('<li>');
+                    input = '<p name="answer'+letter+'" id="'+index+letter+'">' + letter + ': ';
+                    input += questions[index].choices[letter];
+                    item.append(input);
+                    questionList.append(item);
+                }
+            }
+        
+        return questionList;
+    }
+    } )
+
+>>>>>>> Stashed changes
 
 function submitNewQuestion() {
      var getQuestions = {
@@ -358,6 +505,20 @@ function submitNewQuestion() {
   });
   */
 }
+
+
+
+//this will be when the edit button is pressed in the admin quiz page
+function editQuestion() 
+{
+
+}
+
+/*  LOCATIONS    */
+///////////////////
+///////////////////
+///////////////////
+
 
 function admin(){
   window.location.href="admin.html";

@@ -11,7 +11,7 @@
     loadQuestions();
     
     displayQuestions();
-    editQuizStart();
+    //editQuizStart();
     
     //Click handler for 'submit' button
     $('#submit').on('click', function(e) {
@@ -19,7 +19,7 @@
         
         
         
-        choose();
+        //choose();
         
         showResults();
     });
@@ -173,7 +173,7 @@
     }
     
     //for admin quiz page, to be used to determine if there is already a quiz to edit
-    function editQuizStart()
+    /*function editQuizStart()
     {
         adminquiz.fadeOut(function() 
         {
@@ -239,7 +239,7 @@
                 item.append(input);
                 questionList.append(item);
 
-                */
+                
                 if(letter == questions[index].correctAnswer)
                 {
                     item = $('<li>');
@@ -265,7 +265,7 @@
 {
     console.log("add working");
 }
-
+*/
     
 function editQuestions(index)
 {
@@ -276,7 +276,7 @@ function deleteQuestion(index)
 {
     console.log(index);
     questions.splice(index,1);
-    editQuizStart();
+    
 }
     
 } )();
