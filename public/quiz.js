@@ -21,7 +21,7 @@
         
         //choose();
         
-        showResults();
+        //showResults();
     });
     
     
@@ -187,12 +187,12 @@
             
                 
                 //add buttons for edit or remove per question
-                var deletebutton = $('<input type="button" class="btns" name="btnsdele"  value="delete" /> ');
+                var deletebutton = $('<input type="button" class="btns" id="delete" name="btnsdele"  value="Delete" /> ');
                 nextQuestion.append(deletebutton);
                 
                 
                 
-                var editbutton = $('<input type="button" class="btns" onClick="editQuestion('+i+')" value="edit"/>');
+                var editbutton = $('<input type="button" class="btns" id="edit" onClick="editQuestion('+i+')" value="Edit"/>');
                 nextQuestion.append(editbutton);
 
                 

@@ -12,17 +12,26 @@
 </head>
 <body>
 <div class="container-fluid">
-    <div class="row">
+ <!--   <div class="row">
         <div class="col-lg-5">
             <hr class="thin">
         </div>
         <div class="col-lg-2 text-center">
             <h1 class="header">Create Quiz</h1>
+			
         </div>
+		
         <div class="col-lg-5">
             <hr class="thin">
+			<img src="wsulogo.png" alt="Italian Trulli" id="wsuloginlogo" align="right">
         </div>
-    </div>
+		
+    </div>-->
+	<div class = "rowz">
+		<img src="wsulogo.png" alt="Italian Trulli" id="wsuloginlogo" align="right">
+		<h3 class="header">Create Quiz</h3>	
+	</div>
+	
 </div>
 <div id="adminquiz" class="outer">
     <div class="inner">
@@ -35,7 +44,7 @@
         </div>
         
         
-        <!--
+        
         <form name="frmText">
             <select id="selected_course_quiz">
                 <option value="" disabled="disabled" selected="selected">Please select a course</option>
@@ -80,22 +89,23 @@
             <div>
                 <textarea id="notes_quiz" name="form_text" rows="10" cols="40" placeholder="Enter additional notes...(ex. Correct answer is B, can be found on page: )"></textarea>
             </div>
-        </form>-->
+        </form>
         <button onclick="submitNewQuestion()" id="submit">Submit</button>
         
+
         <button onclick="getPracticeQuestions()" id="questions">Questions</button>
+
     </div>
 </div>
 <div id="results"></div>
 <footer>
     <div class="nav">
         <ul class="main-menu">
-            <li><a href="index.html">Logout</a>
+            <li><a href="index.html" id="logButt">Logout</a>
             </li>
         </ul>
     </div>
 </footer>
-    
 
 		<script type='text/javascript' src='quiz.js'></script>
     
