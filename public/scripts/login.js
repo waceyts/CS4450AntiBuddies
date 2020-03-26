@@ -23,6 +23,7 @@ var newUserResponse;
 var isLoading;
 var passToStore;
 
+var myQuestions = [ {} ];
 
 
 /*  USER INFORMATION   
@@ -194,14 +195,19 @@ function addUser() {
       getUser(user);
     }
   });
-
 }
-/* END OF USER SECTION*/
+
+
+
+/* ADMIN QUIZ SECTION  */
 ////////////////////////
-////////////////////////
+///////////////////////
 
 function getPracticeQuestions() {
+
   var myQuestions = [ {} ];
+
+  //var myQuestions = [ {} ];
     var difficulty = "1";
     var courseID = "1";
 
@@ -219,86 +225,19 @@ function getPracticeQuestions() {
     if (error) {
       prompt(error, error.stack);
     } else {
-      console.log('data: '+ data.Payload);
-      loginResponse = JSON.parse(data.Payload);
-
-      //if login was successful
-      if (loginResponse.response) {
-        userID = loginResponse.ID;
-        console.log("UserID: " + userID);
-        getUser(userID);
-      }
-      else {
-        //wrong login information
-        //TODO: Raise error
-          
-          console.log("log in failed");
-        alert("Something went wrong, try again");
-        document.getElementById("user_div").style.display = "none";
-      }
+     
+      myQuestions = JSON.parse(data.Payload);
+        console.log(myQuestions);
+        //editQuizStart(myQuestions);
+       
     }
   });
 
-
-
-  //courseID is a static 3 right now because it's the only course available
-  //need to put in home.html after each course page (ex Immunhematology.html) 
-  //get difficulty from course page
-
-  //make a request to get the practice questions
-   /* var questionsParams = {
-        FunctionName : "getPracticeQuestions",
-        InvocationType : "RequestResponse",
-        LogType: "None",
-        Payload : '{"CourseID":"'+String("3")+
-                '","difficulty":"'+String("2")+
-                '"}'
-        
-    };
     
-    lambda.invoke(questionsParams, function(error, data)
-    {
-        if(error) {
-            prompt(error, error.stack);
-        } else
-            {
-                console.log('data: ' + data.Payload);
-                questionresponse = JSON.parse(data.Payload);
-                
-                if(questionresponse.response) {
-                    questionss = questionresponse.PracticeQuestions;
-                    console.log("Questions: " + questionss + "WORKED");
-                }
-                else
-                    {
-                        console.log("FAILED QUESTIONS")
-                    }
-            }
-    })*/
 }
 
-
-function directAfterLogin(user) {
-
-  isLoggedIn = true;
-  if (user.isAdmin == "true") {
-    window.location.href="admin.html";
-  } else {
-    document.getElementById("user_div").style.display = "block";
-    document.getElementById("login_form").style.display = "none";
-  }
-
-}
-
-//this will be when the edit button is pressed in the admin quiz page
-function editQuestion() 
-{
-
-}
 
 function submitNewQuestion() {
-     
-
   var course = document.getElementById("selected_course_quiz").selectedIndex;
   console.log("Course: " + course);
 
@@ -378,8 +317,36 @@ function submitNewQuestion() {
       window.location.href="admin.html";
     }
   });
-  
+     
+
+
+
+
+function directAfterLogin(user) {
+
+  isLoggedIn = true;
+  if (user.isAdmin == "true") {
+    window.location.href="admin.html";
+  } else {
+    document.getElementById("user_div").style.display = "block";
+    document.getElementById("login_form").style.display = "none";
+  }
+
 }
+
+
+function editQuestion()
+  {
+    
+  }
+  
+
+
+/*  LOCATIONS    */
+///////////////////
+///////////////////
+///////////////////
+
 
 function admin(){
   window.location.href="admin.html";
