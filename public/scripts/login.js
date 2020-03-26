@@ -258,6 +258,7 @@ function getPracticeQuestions() {
 
 //for admin quiz page, to be used to determine if there is already a quiz to edit
 
+/*
     $(function()
       {
       function editQuizStart(questions)
@@ -281,8 +282,13 @@ function getPracticeQuestions() {
                 
                 var editbutton = $('<input type="button" class="btns" id="edit" onClick="editQuestion('+i+')" value="Edit"/>');
                 nextQuestion.append(editbutton);
+<<<<<<< Updated upstream
 
               
+=======
+                
+                             
+>>>>>>> Stashed changes
                 var header = $('<h2>Question ' + (i + 1) + ':</h2>');
                 
                 nextQuestion.append(header);
@@ -306,9 +312,8 @@ function getPracticeQuestions() {
             
         });
     }
-    
-    
-    function viewAnswers(index)
+        
+        function viewAnswers(index)
     {
         var questionList = $('<ul>');
         var item;
@@ -325,7 +330,7 @@ function getPracticeQuestions() {
                 input += questions[index].choices[letter];
                 item.append(input);
                 questionList.append(item);
-                */
+                
                 //
                 if(letter == questions[index].correctAnswer)
                 {
@@ -349,6 +354,11 @@ function getPracticeQuestions() {
     }
     } )
 
+<<<<<<< Updated upstream
+=======
+*/
+
+>>>>>>> Stashed changes
 
 
 function directAfterLogin(user) {
@@ -363,11 +373,14 @@ function directAfterLogin(user) {
 
 }
 
+<<<<<<< Updated upstream
 //this will be when the edit button is pressed in the admin quiz page
 function editQuestion() 
 {
     
 }
+=======
+>>>>>>> Stashed changes
 
 
 
