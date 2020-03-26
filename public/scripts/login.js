@@ -24,7 +24,6 @@ var isLoading;
 var passToStore;
 
 var myQuestions = [ {} ];
-var adminquiz = $('#currentQuiz');
 
 
 /*  USER INFORMATION   
@@ -225,9 +224,9 @@ function directAfterLogin(user) {
 ///////////////////////
 
 function getPracticeQuestions() {
-<<<<<<< Updated upstream
+
   var myQuestions = [ {} ];
-=======
+
   //var myQuestions = [ {} ];
     var difficulty = "1";
     var courseID = "1";
@@ -249,7 +248,7 @@ function getPracticeQuestions() {
      
       myQuestions = JSON.parse(data.Payload);
         console.log(myQuestions);
-        editQuizStart(myQuestions);
+        //editQuizStart(myQuestions);
        
     }
   });
@@ -258,7 +257,6 @@ function getPracticeQuestions() {
 }
 
 //for admin quiz page, to be used to determine if there is already a quiz to edit
->>>>>>> Stashed changes
 
     $(function()
       {
@@ -284,31 +282,7 @@ function getPracticeQuestions() {
                 var editbutton = $('<input type="button" class="btns" id="edit" onClick="editQuestion('+i+')" value="Edit"/>');
                 nextQuestion.append(editbutton);
 
-<<<<<<< Updated upstream
-  //make a request to get the practice questions
-
-}
-
-
-function directAfterLogin(user) {
-
-  isLoggedIn = true;
-  if (user.isAdmin == "true") {
-    window.location.href="admin.html";
-  } else {
-    document.getElementById("user_div").style.display = "block";
-    document.getElementById("login_form").style.display = "none";
-  }
-
-}
-
-//this will be when the edit button is pressed in the admin quiz page
-function editQuestion() 
-{
-    
-}
-=======
-                
+              
                 var header = $('<h2>Question ' + (i + 1) + ':</h2>');
                 
                 nextQuestion.append(header);
@@ -375,7 +349,27 @@ function editQuestion()
     }
     } )
 
->>>>>>> Stashed changes
+
+
+function directAfterLogin(user) {
+
+  isLoggedIn = true;
+  if (user.isAdmin == "true") {
+    window.location.href="admin.html";
+  } else {
+    document.getElementById("user_div").style.display = "block";
+    document.getElementById("login_form").style.display = "none";
+  }
+
+}
+
+//this will be when the edit button is pressed in the admin quiz page
+function editQuestion() 
+{
+    
+}
+
+
 
 function submitNewQuestion() {
      var getQuestions = {

@@ -173,7 +173,7 @@
     }
     
     //for admin quiz page, to be used to determine if there is already a quiz to edit
-    /*function editQuizStart()
+    function editQuizStart()
     {
         adminquiz.fadeOut(function() 
         {
@@ -232,7 +232,7 @@
         
         for (letter in questions[index].choices)
             {
-                /*
+                
                 item = $('<li>');
                 input = '<p name="answer'+letter+'" id="'+index+letter+'">' + letter + ': ';
                 input += questions[index].choices[letter];
@@ -265,7 +265,7 @@
 {
     console.log("add working");
 }
-*/
+
     
 function editQuestions(index)
 {
