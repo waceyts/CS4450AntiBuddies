@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Admin Quiz Maker</title>
+    <script src="https://sdk.amazonaws.com/js/aws-sdk-2.500.0.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.js"></script>
+    <link rel="stylesheet" href="style/panel.css">
+    <script src="scripts/login.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+ <!--   <div class="row">
+        <div class="col-lg-5">
+            <hr class="thin">
+        </div>
+        <div class="col-lg-2 text-center">
+            <h1 class="header">Create Quiz</h1>
+			
+        </div>
+		
+        <div class="col-lg-5">
+            <hr class="thin">
+			<img src="wsulogo.png" alt="Italian Trulli" id="wsuloginlogo" align="right">
+        </div>
+		
+    </div>-->
+	<div class = "rowz">
+		<img src="wsulogo.png" alt="Italian Trulli" id="wsupagelogo" align="right">
+		<h3 class="header">Create Quiz</h3>	
+	</div>
+	
+</div>
+<div id="adminquiz" class="outer">
+    <div class="inner">
+        <div id='currentQuiz'>
+            <input type="image" id="addQuestionButton" src="Picture1.png" onclick="addQuestion()" />
+			
+            
+
+            
+        </div>
+        
+        
+        
+        <form name="frmText">
+            <select id="selected_course_quiz">
+                <option value="" disabled="disabled" selected="selected">Please select a course</option>
+                <option value="1">Immunhematology</option>
+                <option value="2">Chemistry</option>
+                <option value="3">Microbiology</option>
+                <option value="4">Hematology</option>
+                <option value="5">Immunology</option>
+                <option value="6">Urinalysis</option>
+            </select>
+           <textarea id="section_quiz" placeholder="Enter your section here..."></textarea>
+            <div>
+                    <span class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="level_quiz_1" value="1">
+                        <label class="form-check-label" for="exampleRadios1">
+                            Beginner
+                        </label>
+                    </span>
+                        <span class="form-check">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="level_quiz_2" value="2">
+                        <label class="form-check-label" for="exampleRadios2">
+                            Intermediate
+                        </label>
+                    </span>
+                        <span class="form-check disabled">
+                        <input class="form-check-input" type="radio" name="exampleRadios" id="level_quiz_3" value="3">
+                        <label class="form-check-label" for="exampleRadios3">
+                            Advanced
+                        </label>
+                    </span>
+            </div>
+            <div>
+                <textarea id="question_text_quiz" name="form_text" rows="10" cols="40" placeholder="Enter your question here..."></textarea>
+            </div>
+            <h5>Select correct answer</h5>
+            <div class="options">
+                <span><input type="radio" id="check_answer_a" name="correctAnswer" value="0"><label for="a">a</label><input type="" id="answer_a" /></span>
+                <span><input type="radio" id="check_answer_b" name="correctAnswer" value="1"><label for="b">b</label><input type="" id="answer_b" /></span>
+                <span><input type="radio" id="check_answer_c" name="correctAnswer" value="2"><label for="c">c</label><input type="" id="answer_c" /></span>
+                <span><input type="radio" id="check_answer_d" name="correctAnswer" value="3"><label for="d">d</label><input type="" id="answer_d" /></span>
+            </div>
+            <div>
+                <textarea id="notes_quiz" name="form_text" rows="10" cols="40" placeholder="Enter additional notes...(ex. Correct answer is B, can be found on page: )"></textarea>
+            </div>
+        </form>
+        <button onclick="submitNewQuestion()" id="submit">Submit</button>
+        
+        <button onclick="getPracticeQuestions()" id="get">Questions</button>
+    </div>
+</div>
+<div id="results"></div>
+<footer>
+    <div class="nav">
+        <ul class="main-menu">
+            <li><a href="index.html" id="logButt">Logout</a>
+            </li>
+        </ul>
+    </div>
+</footer>
+    
+        
+		<script type='text/javascript' src='quiz.js'></script>
+    
+</body>
+</html>
