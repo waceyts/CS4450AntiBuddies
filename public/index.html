@@ -23,20 +23,23 @@
     <!--main_div is login form-->
     <div id="login_form" role="dialog" class="main-div">
       <img src="wsulogo.png" alt="Italian Trulli" id="wsuloginlogo">
-        <span>Username<input type="email" id="email_field" /></span>
-        <span>Password<input type="password" id="password_field" /></span>
-        <button onclick="login()">Login</button>
-      <div id="create_user">
-        <span>Not yet a member?</span>
-        <span>Create a new user!</span>
-      </div>
-      <button data-toggle="modal" data-target="#newuser_div">Create User</button>
+	  
+			<span>Username<input type="email" id="email_field" /></span>
+			<span>Password<input type="password" id="password_field" /></span>
+			<button onclick="login()">Login</button>
+		  <div id="create_user">
+			<span>Not yet a member?</span>
+			<span>Create a new user!</span>
+		  </div>
+		  <button data-toggle="modal" data-target="#newuser_div">Create User</button>
+	    
+	  
     </div>
 
 
     <!-- user_div is user is logged in -->
     <div class="loggedin-div" id="user_div">
-      <h3 id="getUserFirst"></h3>
+      <h2 id="getUserFirst"></h2>
       <span id="user_para">Welcome to AntiBuddies!</span>
         <div class="user_div_button">
           <div class="left">
@@ -62,7 +65,7 @@
         <div class="modal-content">
 
           <div class="modal-header">
-            <h3 class="modal-title">Create New User</h3>
+            <h2 class="modal-title">Create New User</h2>
           </div>
           <div class="modal-body">
             <div class="form-group">

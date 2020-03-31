@@ -1,28 +1,39 @@
 html {
-  background: #282828;
+  background: #353535;
   zoom: 100%;
 }
 body {
-  background: #353535;
+  background: #282828;
   padding: 0px;
   margin: 40px;
-  font-family: "segoe-ui", "open-sans", tahoma, arial;
+  font-family: "Helvetica", "open-sans", tahoma, arial;
   font-size: 15px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   color:#fff;
 }
 h3 {
-  color: #fff;
+  white-space: nowrap;
+	text-align: center;
+	font-size: 75px;
+	margin-bottom: 40px;
+	padding: 30px;
+}
+h2 {
+	color: #fff;
 }
 h1 {
   margin: 25px auto 0;
   text-align: center;
   /* text-transform: uppercase; */
-  /* font-size: 40px; */
+  font-size: 40px;
   color: #fff;
 }
 a {
   text-decoration: none;
+  color: white;
+}
+a:visited{
+	color: white;
 }
 
 input, button {
@@ -36,6 +47,14 @@ input, button {
   margin-left: auto;
   margin-right: auto;
   display: block;
+}
+#wsupagelogo{
+	width: 100px;
+	display: block;
+	margin-bottom: 10px;
+	margin-right: 20px;
+	margin-top: 20px;
+	margin-left: 0px;
 }
 
 p {
@@ -51,7 +70,21 @@ button {
   display: inline-block;
   font-size: 16px;
 }
-.main-div, .loggedin-div, .newloggedin-div {
+#bigbutt{
+	font-size: 20px;
+}
+.rowz{
+	text-align: center;
+	display:block;
+}
+.main-div{
+	width: 30%;
+  margin: 0px auto;
+  /* margin-top: 150px; */
+  padding: 20px;
+  /*display: none; This is causing the main page not to show for me; not sure if it's supposed to be here*/
+}
+.loggedin-div, .newloggedin-div {
   width: 30%;
   margin: 0px auto;
   /* margin-top: 150px; */
@@ -69,7 +102,21 @@ button {
   height: auto;
 }
 
-.main-div input, .modal-dialog input {
+.main-div input{
+	display: block;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background: #282828;
+  padding: 15px;
+  outline: none;
+  width: 100%;
+  margin-bottom: 20px;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+}
+
+.modal-dialog input {
   display: block;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -91,7 +138,19 @@ button {
   background: #282828;
 }
 
-.main-div button, .loggedin-div button, .newloggedin-div button, .modal-dialog button, .outer button {
+.main-div button{
+	background: #421663;
+  color: #fff;
+  border-radius: 5px;
+  padding: 15px;
+  display: block;
+  width: 100%;
+  transition: 0.3s;
+  -webkit-transition: 0.3s;
+  -moz-transition: 0.3s;
+}
+
+.loggedin-div button, .newloggedin-div button, .modal-dialog button, .outer button {
   background: #421663;
   color: #fff;
   border-radius: 5px;
@@ -104,7 +163,7 @@ button {
 }
 
 .main-div button:hover, .loggedin-div button:hover, .newloggedin-div button:hover, .modal-dialog button:hover, .outer button:hover {
-  background: #43964D;
+  background: #a46ef0;
   color: #fff;
   cursor: pointer;
 }
@@ -173,7 +232,7 @@ button {
           background: #421663;
          }
      .main-menu>li:hover, .sub-menu>li:hover{
-          background: #43964D;
+          background: #a46ef0;
          }
 
 #create_user {
