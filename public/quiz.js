@@ -11,7 +11,7 @@
     loadQuestions();
     
     displayQuestions();
-    editQuizStart();
+    //editQuizStart();
     
     //Click handler for 'submit' button
     $('#submit').on('click', function(e) {
@@ -19,7 +19,7 @@
         
         
         
-        choose();
+        //choose();
         
         //showResults();
     });
@@ -232,14 +232,14 @@
         
         for (letter in questions[index].choices)
             {
-                /*
+                
                 item = $('<li>');
                 input = '<p name="answer'+letter+'" id="'+index+letter+'">' + letter + ': ';
                 input += questions[index].choices[letter];
                 item.append(input);
                 questionList.append(item);
 
-                */
+                
                 if(letter == questions[index].correctAnswer)
                 {
                     item = $('<li>');
@@ -276,7 +276,7 @@ function deleteQuestion(index)
 {
     console.log(index);
     questions.splice(index,1);
-    editQuizStart();
+    
 }
     
 } )();
