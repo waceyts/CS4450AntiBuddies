@@ -6,18 +6,34 @@
 	<script type="text/javascript" src="js/jquery-3.4.1.min.js"></script>
 	<script type="text/javascript" src="js/bootstrap.js"></script> -->
 	<title>Chemistry</title>
+	<link rel="stylesheet" href="style/login.css">
+	<script src="script/login.js"></script>
 </head>
-<link rel="stylesheet" href="style/login.css">
-<script src="script/login.js"></script>
+
 <body>
-	<div class="head">
-		<h1>Chemistry</h1>
+	<div class="container-fluid">
+		<div class="rowz">
+			<img src="wsulogo.png" alt="Italian Trulli" id="wsupagelogo" align="right">
+			<h3>Chemistry</h3>
+		</div>
 	</div>
-	<div class="outer"; id="outer">
-		<div class="inner"><button class="panel"; onclick="home()">Panels</button></div>
-		<div class="inner"><button class="panelex" onclick="home()";>Panel Examples</button></div>
-		<div class="inner"><button class="pq" onclick="practiceQuestions()";>Practice Questions</button></div>
-    </div>
+	<hr class="thin">
+	
+	<div class="container-fluid">
+			<div class="row">
+				<div class="outer">
+					<div class="col-sm panel_options">
+						<button class="panel"; onclick="home()" id="bigbutt">Panels</button>	
+					</div>
+					<div class="col-sm panel_options">
+						<button class="panelex" onclick="home()"id="bigbutt";>Panel Examples</button>	
+					</div>
+					<div class="col-sm panel_options">
+						<button class="pq" onclick="practiceQuestions()"id="bigbutt";>Practice Questions</button>	
+					</div>
+				</div>
+			</div>
+		</div>
 </body>
 <footer>
     <div class="nav">

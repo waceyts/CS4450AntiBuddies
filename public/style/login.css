@@ -77,14 +77,8 @@ button {
 	text-align: center;
 	display:block;
 }
-.main-div{
-	width: 30%;
-  margin: 0px auto;
-  /* margin-top: 150px; */
-  padding: 20px;
-  /*display: none; This is causing the main page not to show for me; not sure if it's supposed to be here*/
-}
-.loggedin-div, .newloggedin-div {
+
+.main-div, .loggedin-div, .newloggedin-div {
   width: 30%;
   margin: 0px auto;
   /* margin-top: 150px; */
@@ -102,21 +96,9 @@ button {
   height: auto;
 }
 
-.main-div input{
-	display: block;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background: #282828;
-  padding: 15px;
-  outline: none;
-  width: 100%;
-  margin-bottom: 20px;
-  transition: 0.3s;
-  -webkit-transition: 0.3s;
-  -moz-transition: 0.3s;
-}
 
-.modal-dialog input {
+
+.main-div input, .modal-dialog input {
   display: block;
   border: 1px solid #ccc;
   border-radius: 5px;
@@ -138,19 +120,9 @@ button {
   background: #282828;
 }
 
-.main-div button{
-	background: #421663;
-  color: #fff;
-  border-radius: 5px;
-  padding: 15px;
-  display: block;
-  width: 100%;
-  transition: 0.3s;
-  -webkit-transition: 0.3s;
-  -moz-transition: 0.3s;
-}
 
-.loggedin-div button, .newloggedin-div button, .modal-dialog button, .outer button {
+
+.main-div button, .loggedin-div button, .newloggedin-div button, .modal-dialog button, .outer button {
   background: #421663;
   color: #fff;
   border-radius: 5px;
