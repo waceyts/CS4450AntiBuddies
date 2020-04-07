@@ -90,23 +90,33 @@
                 <textarea id="notes_quiz" name="form_text" rows="10" cols="40" placeholder="Enter additional notes...(ex. Correct answer is B, can be found on page: )"></textarea>
             </div>
         </form>
-        <button onclick="submitNewQuestion()" id="submit">Submit</button>
-        
         <button onclick="getPracticeQuestions()" id="get">Questions</button>
     </div>
 </div>
 <div id="results"></div>
+
+<script type='text/javascript' src='quiz.js'></script>
+
+</body>
+
 <footer>
-    <div class="nav">
-        <ul class="main-menu">
-            <li><a href="index.html" id="logButt">Logout</a>
-            </li>
-        </ul>
-    </div>
+
+	
+		<div class="nav">
+		
+			<ul class="main-menu" id="logbut">
+				<li><a href="index.html" id="logButt">Logout</a>
+				</li>
+			</ul>
+			<div class="subbtn" id="subButt"><button onclick="submitNewQuestion()" id="submit">Submit</button></div>			
+		</div>
+		
+	     
+	
 </footer>
     
         
-		<script type='text/javascript' src='quiz.js'></script>
+		
     
-</body>
+
 </html>

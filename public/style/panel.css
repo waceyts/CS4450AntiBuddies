@@ -157,6 +157,28 @@ button:hover {
 	color: #fff;
 	cursor: pointer;
 }
+#get{
+    font-size: 20px;
+    background: #421663;
+    color: #fff;
+    border: 0px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    display: inline-block;
+    background: #421663;
+    color: #fff;
+    border-radius: 5px;
+    padding: 15px;
+    transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+}
+#get:hover{
+	background: #a46ef0;
+	color: #fff;
+	cursor: pointer;
+}
 #subButt{
 	text-align: center;
 }
