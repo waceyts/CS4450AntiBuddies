@@ -205,15 +205,13 @@ function addUser() {
 
 function getPracticeQuestions() {
 
-  var myQuestions = [ {} ];
-
   //var myQuestions = [ {} ];
     var difficulty = "1";
     var courseID = "1";
 
 
   // create JSON object for loginParams
-  var loginParams = {
+  var questionParams = {
     FunctionName : "getPracticeQuestions",
     InvocationType : "RequestResponse",
     LogType : "None",
@@ -221,21 +219,28 @@ function getPracticeQuestions() {
               '","difficulty":"'+String(difficulty)+'"}',
   };
 
-  lambda.invoke(loginParams, function(error, data) {
+  lambda.invoke(questionParams, function(error, data) {
     if (error) {
       prompt(error, error.stack);
     } else {
      
       myQuestions = JSON.parse(data.Payload);
-        console.log(myQuestions);
-        //editQuizStart(myQuestions);
+        //console.log(myQuestions);
+        adminQuizStart();
        
     }
   });
 
-    
 }
 
+function adminQuizStart()
+{
+    var adminQuiz = document.getElementById("currentQuiz");
+    
+    var questionLength = myQuestions.length;
+    
+    console.log(myQuestions);
+}
 
 function submitNewQuestion() {
   var course = document.getElementById("selected_course_quiz").selectedIndex;
@@ -317,6 +322,7 @@ function submitNewQuestion() {
       window.location.href="admin.html";
     }
   });
+}
      
 
 

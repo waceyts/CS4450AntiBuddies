@@ -11,7 +11,7 @@
     loadQuestions();
     
     displayQuestions();
-    //editQuizStart();
+    editQuizStart();
     
     //Click handler for 'submit' button
     $('#submit').on('click', function(e) {
@@ -281,22 +281,3 @@ function deleteQuestion(index)
     
 } )();
 
-/*
-function addQuestion()
-{
-    console.log("add working");
-}
-
-    
-function editQuestions(index)
-{
-        
-}
-             
-function deleteQuestion(index)
-{
-    console.log(index);
-    questions.splice(index,1);
-    editQuizStart();
-}
-    */
