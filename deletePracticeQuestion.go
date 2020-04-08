@@ -35,13 +35,12 @@ func DeletePracticeQuestionFromDB(practiceQuestion request) string {
 	db.Query("USE antibuddies; GO")
 
 	// Execute db stored procedure to add a new practiceQuestion
-	_, err = db.Query(
-		`'USE antibuddies; GO
+	_, err = db.Query(`USE antibuddies;
         BEGIN TRANSACTION;
             DELETE FROM PQAnswers			WHERE question_id = '` + practiceQuestion.QuestionID + `';
             DELETE FROM PQScores			WHERE question_id = '` + practiceQuestion.QuestionID + `';
             DELETE FROM PracticeQuestions	WHERE question_id = '` + practiceQuestion.QuestionID + `';
-        COMMIT;'`)
+        COMMIT TRANSACTION;`)
 	if err != nil {
 		return "Error in deleting PracticeQuestion: " + err.Error()
 	}
