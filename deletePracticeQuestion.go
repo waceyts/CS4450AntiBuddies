@@ -19,7 +19,7 @@ type request struct {
 
 // Response object property and associated JSON key
 type response struct {
-	PracticeQuestion string `json:"ID"`
+	DeleteResponse string `json:"response"`
 }
 
 // Opens a Database connection and inserts a practiceQuestion. Returns a string containing the new PracticeQuestion's ID
@@ -52,10 +52,10 @@ func DeletePracticeQuestionFromDB(practiceQuestion request) string {
 // AWS Lambda template function that does all the work for the lambda execution
 func handler(practiceQuestion request) (response, error) {
 
-	PracticeQuestionID := DeletePracticeQuestionFromDB(practiceQuestion)
+	DeleteResponseStr := DeletePracticeQuestionFromDB(practiceQuestion)
 
 	return response{
-		PracticeQuestion: fmt.Sprintf(PracticeQuestionID),
+		DeleteResponse: fmt.Sprintf(DeleteResponseStr),
 	}, nil
 }
 
