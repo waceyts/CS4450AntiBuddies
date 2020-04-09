@@ -24,6 +24,8 @@ var isLoading;
 var passToStore;
 
 var myQuestions = [ {} ];
+var Answers = [ { } ];
+var answerList = [];
 
 
 /*  USER INFORMATION   
@@ -234,13 +236,103 @@ function getPracticeQuestions() {
 
 }
 
+function getAnswers(questionID) {
+    
+    var answerlist = [];
+    var check;
+
+  // create JSON object for loginParams
+  var questionParams = {
+    FunctionName : "getPracticeQuestionAnswers",
+    InvocationType : "RequestResponse",
+    LogType : "None",
+    Payload : '{"questionID":"'+String(questionID)+'"}',
+  };
+
+  lambda.invoke(questionParams, function(error, data) {
+    if (error) {
+      prompt(error, error.stack);
+    } else {
+     
+      Answers = JSON.parse(data.Payload);
+        //console.log(Answers);
+        placeAnswers(questionID);
+        console.log(answerlist);
+        
+       
+    }
+  });
+    
+   
+    
+    
+    
+}
+
+//LEFT OFF HERE
+function placeAnswers(qi)
+{
+   
+    var answerunordered = '<ul>';
+    var logging = '';
+    var answerLength = Answers.PracticeQuestionAnswers.length;
+    //console.log(answerLength);
+    
+    for (var i = 0; i < answerLength; i++)
+        {
+            var answerNum = Answers.PracticeQuestionAnswers[i].id;
+            //console.log(answerNum);
+            logging = '<li> <p name="answer' + answerNum+ '" id="'+ qi + '' + answerNum + '"> ' + answerNum + ": " + Answers.PracticeQuestionAnswers[i].correctAnswer + ' ';
+            
+            answerunordered += logging;
+            
+            answerList.push (
+                answerunordered
+            );
+            
+        }
+    console.log(answerList);
+    
+}
+
 function adminQuizStart()
 {
     var adminQuiz = document.getElementById("currentQuiz");
     
-    var questionLength = myQuestions.length;
+    var questions = [];
+    var answer = '';
     
-    console.log(myQuestions);
+    var questionLength = myQuestions.PracticeQuestions.length;
+    
+    //console.log(questionLength);
+    //console.log(myQuestions);
+    
+    //inserts the questions from the lambda
+    
+    for (var i = 0; i < questionLength; i++)
+        {
+            var questionID = myQuestions.PracticeQuestions[i].id;
+            
+            //get answers
+            getAnswers(questionID);
+            
+           
+            
+            var deletebutton = '<input type="button" class="btns" id="delete"  name="btnsdele" onClick="deleteQuestion('+i+')" value="Delete"/>';
+            
+            var editbutton = '<input type="button" class="btns" id="edit" onClick="editQuestion('+i+')" value="Edit"/>';
+            
+            var header = '<h2>Question ' + (i+1) + ': </h2>';
+            
+            var question = '<p>'+(myQuestions.PracticeQuestions[i].question);
+            
+            questions.push(
+                '<div id="'+questionID+'">' + ' ' + deletebutton + ' ' + editbutton + ' ' + header + ' ' + question + '' +  answerList[i] + '</div>');
+            
+        }
+    
+    adminQuiz.innerHTML = questions.join('');
+    
 }
 
 function submitNewQuestion() {
