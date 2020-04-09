@@ -51,6 +51,7 @@ var myQuestions = [ {} ];
       // No user is signed in.
         document.getElementById("user_div").style.display = "none";
       }
+
   }
 
 
@@ -323,10 +324,6 @@ function submitNewQuestion() {
     }
   });
 }
-     
-
-
-
 
 function directAfterLogin(user) {
 
@@ -346,7 +343,32 @@ function editQuestion()
     
   }
   
+function deleteQuestion()
+{
 
+  // create JSON object for questionParams
+  var questionParams = {
+    FunctionName : "deletePracticeQuestion",
+    InvocationType : "RequestResponse",
+    LogType : "None",
+    Payload : '{"questionID":"'+String("37")+'"}',
+  };
+
+  lambda.invoke(questionParams, function(error, data) {
+    if (error) {
+      prompt(error, error.stack);
+    } else {
+
+      //myQuestions = JSON.parse(data.Payload);
+        //console.log(myQuestions);
+
+
+    }
+  });
+}
+
+//to test if calling the function actually activates Lambda
+//deleteQuestion();
 
 /*  LOCATIONS    */
 ///////////////////
