@@ -79,6 +79,9 @@ label {
 .container {
     background-color: #353535;
 }
+.newQuestion_div{
+	
+}
 
 /*-----Input areas-----*/
 input[type='radio'] { 
