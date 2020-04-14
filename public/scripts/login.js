@@ -13,6 +13,7 @@ var lambda = new AWS.Lambda({region: 'us-east-2', apiVersion: '2015-03-31'});
 var responseVal;
 var loginResponse;
 var isLoggedIn = false;
+var newQuestOn = false;
 var user;
 var getUserPromise;
 var firstName;
@@ -432,6 +433,70 @@ function submitNewQuestion() {
       window.location.href="admin.html";
     }
   });
+}
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////
+function addQuestion(){
+	var adminQuiz = document.getElementById("currentQuiz");
+	var questions = [];
+	newQuestOn = true;
+	questions.push('<div class="newQuestion_div">');
+	questions.push('<form name="frmText">');
+	questions.push('<select id="selected_course_quiz">');
+	questions.push('<option value="" disabled="disabled" selected="selected">Please select a course</option>');
+	questions.push('<option value="1">Immunhematology</option>');
+	questions.push('<option value="2">Chemistry</option>');
+	questions.push('<option value="3">Microbiology</option>');
+	questions.push('<option value="4">Hematology</option>');
+	questions.push('<option value="5">Immunology</option>');
+	questions.push('<option value="6">Urinalysis</option>');
+	questions.push('</select>');
+	questions.push('<textarea id="section_quiz" placeholder="Enter your section here..."></textarea>');
+	questions.push('<div>');
+	questions.push('<span class="form-check">');
+	questions.push('<input class="form-check-input" type="radio" name="exampleRadios" id="level_quiz_1" value="1">');						
+	questions.push('<label class="form-check-label" for="exampleRadios1">');						
+	questions.push('Beginner');							
+	questions.push('</label>');						
+	questions.push('</span>');					
+	questions.push('<span class="form-check">');						
+	questions.push('<input class="form-check-input" type="radio" name="exampleRadios" id="level_quiz_2" value="2">');						
+	questions.push('<label class="form-check-label" for="exampleRadios2">');						
+	questions.push('Intermediate');							
+	questions.push('</label>');						
+	questions.push('</span>');					
+	questions.push('<span class="form-check disabled">');						
+	questions.push('<input class="form-check-input" type="radio" name="exampleRadios" id="level_quiz_3" value="3">');						
+	questions.push('<label class="form-check-label" for="exampleRadios3">');						
+	questions.push('Advanced');							
+	questions.push('</label>');						
+	questions.push('</span>');					
+	questions.push('</div>');			
+	questions.push('<div>');			
+	questions.push('<textarea id="question_text_quiz" name="form_text" rows="10" cols="40" placeholder="Enter your question here..."></textarea>');				
+	questions.push('</div>');			
+	questions.push('<h5>Select correct answer</h5>');			
+	questions.push('<div class="options">');			
+	questions.push('<span><input type="radio" id="check_answer_a" name="correctAnswer" value="0"><label for="a">a</label><input type="" id="answer_a" /></span>');				
+	questions.push('<span><input type="radio" id="check_answer_b" name="correctAnswer" value="1"><label for="b">b</label><input type="" id="answer_b" /></span>');				
+	questions.push('<span><input type="radio" id="check_answer_c" name="correctAnswer" value="2"><label for="c">c</label><input type="" id="answer_c" /></span>');				
+	questions.push('<span><input type="radio" id="check_answer_d" name="correctAnswer" value="3"><label for="d">d</label><input type="" id="answer_d" /></span>');				
+	questions.push('</div>');			
+	questions.push('<div>');			
+	questions.push('<textarea id="notes_quiz" name="form_text" rows="10" cols="40" placeholder="Enter additional notes...(ex. Correct answer is B, can be found on page: )"></textarea>');				
+	questions.push('</div>');			
+	questions.push('</form>');		
+	questions.push('</div>');	
+	
+	
+	
+	
+	
+	adminQuiz.innerHTML = questions.join('');
+	//document.getElementById("newQuestion_div").style.display = "block";	
 }
 
 function directAfterLogin(user) {

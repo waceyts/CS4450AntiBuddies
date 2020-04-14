@@ -44,52 +44,54 @@
         </div>
         
         
-        
-        <form name="frmText">
-            <select id="selected_course_quiz">
-                <option value="" disabled="disabled" selected="selected">Please select a course</option>
-                <option value="1">Immunhematology</option>
-                <option value="2">Chemistry</option>
-                <option value="3">Microbiology</option>
-                <option value="4">Hematology</option>
-                <option value="5">Immunology</option>
-                <option value="6">Urinalysis</option>
-            </select>
-           <textarea id="section_quiz" placeholder="Enter your section here..."></textarea>
-            <div>
-                    <span class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="level_quiz_1" value="1">
-                        <label class="form-check-label" for="exampleRadios1">
-                            Beginner
-                        </label>
-                    </span>
-                        <span class="form-check">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="level_quiz_2" value="2">
-                        <label class="form-check-label" for="exampleRadios2">
-                            Intermediate
-                        </label>
-                    </span>
-                        <span class="form-check disabled">
-                        <input class="form-check-input" type="radio" name="exampleRadios" id="level_quiz_3" value="3">
-                        <label class="form-check-label" for="exampleRadios3">
-                            Advanced
-                        </label>
-                    </span>
-            </div>
-            <div>
-                <textarea id="question_text_quiz" name="form_text" rows="10" cols="40" placeholder="Enter your question here..."></textarea>
-            </div>
-            <h5>Select correct answer</h5>
-            <div class="options">
-                <span><input type="radio" id="check_answer_a" name="correctAnswer" value="0"><label for="a">a</label><input type="" id="answer_a" /></span>
-                <span><input type="radio" id="check_answer_b" name="correctAnswer" value="1"><label for="b">b</label><input type="" id="answer_b" /></span>
-                <span><input type="radio" id="check_answer_c" name="correctAnswer" value="2"><label for="c">c</label><input type="" id="answer_c" /></span>
-                <span><input type="radio" id="check_answer_d" name="correctAnswer" value="3"><label for="d">d</label><input type="" id="answer_d" /></span>
-            </div>
-            <div>
-                <textarea id="notes_quiz" name="form_text" rows="10" cols="40" placeholder="Enter additional notes...(ex. Correct answer is B, can be found on page: )"></textarea>
-            </div>
-        </form>
+        <!--<div class="newQuestion_div">
+			<form name="frmText">
+				<select id="selected_course_quiz">
+					<option value="" disabled="disabled" selected="selected">Please select a course</option>
+					<option value="1">Immunhematology</option>
+					<option value="2">Chemistry</option>
+					<option value="3">Microbiology</option>
+					<option value="4">Hematology</option>
+					<option value="5">Immunology</option>
+					<option value="6">Urinalysis</option>
+				</select>
+			   <textarea id="section_quiz" placeholder="Enter your section here..."></textarea>
+				<div>
+						<span class="form-check">
+							<input class="form-check-input" type="radio" name="exampleRadios" id="level_quiz_1" value="1">
+							<label class="form-check-label" for="exampleRadios1">
+								Beginner
+							</label>
+						</span>
+							<span class="form-check">
+							<input class="form-check-input" type="radio" name="exampleRadios" id="level_quiz_2" value="2">
+							<label class="form-check-label" for="exampleRadios2">
+								Intermediate
+							</label>
+						</span>
+							<span class="form-check disabled">
+							<input class="form-check-input" type="radio" name="exampleRadios" id="level_quiz_3" value="3">
+							<label class="form-check-label" for="exampleRadios3">
+								Advanced
+							</label>
+						</span>
+				</div>
+				<div>
+					<textarea id="question_text_quiz" name="form_text" rows="10" cols="40" placeholder="Enter your question here..."></textarea>
+				</div>
+				<h5>Select correct answer</h5>
+				<div class="options">
+					<span><input type="radio" id="check_answer_a" name="correctAnswer" value="0"><label for="a">a</label><input type="" id="answer_a" /></span>
+					<span><input type="radio" id="check_answer_b" name="correctAnswer" value="1"><label for="b">b</label><input type="" id="answer_b" /></span>
+					<span><input type="radio" id="check_answer_c" name="correctAnswer" value="2"><label for="c">c</label><input type="" id="answer_c" /></span>
+					<span><input type="radio" id="check_answer_d" name="correctAnswer" value="3"><label for="d">d</label><input type="" id="answer_d" /></span>
+				</div>
+				<div>
+					<textarea id="notes_quiz" name="form_text" rows="10" cols="40" placeholder="Enter additional notes...(ex. Correct answer is B, can be found on page: )"></textarea>
+				</div>
+			</form>
+		</div>-->
+		
         <button onclick="getPracticeQuestions()" id="get">Questions</button>
     </div>
 </div>
