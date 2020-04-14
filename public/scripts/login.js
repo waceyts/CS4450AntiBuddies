@@ -24,8 +24,7 @@ var isLoading;
 var passToStore;
 
 var myQuestions = [ {} ];
-var Answers = [ { } ];
-var answerList = [];
+
 
 
 /*  USER INFORMATION   
@@ -238,7 +237,8 @@ function getPracticeQuestions() {
 
 function getAnswers(questionID) {
     
-    var answerlist = [];
+    var Answers = [{}];
+    var listAnswers = [];
     var check;
 
   // create JSON object for loginParams
@@ -254,12 +254,11 @@ function getAnswers(questionID) {
       prompt(error, error.stack);
     } else {
      
-      Answers = JSON.parse(data.Payload);
-        //console.log(Answers);
-        placeAnswers(questionID);
-        console.log(answerlist);
+        Answers = JSON.parse(data.Payload);
         
-       
+        placeAnswers(Answers, questionID);
+        
+        var answerLength = Answers.PracticeQuestionAnswers.length;
     }
   });
     
@@ -270,29 +269,56 @@ function getAnswers(questionID) {
 }
 
 //LEFT OFF HERE
-function placeAnswers(qi)
+function placeAnswers(answers, qi)
 {
-   
-    var answerunordered = '<ul>';
+    var questionhtml = document.getElementById(qi);
+    var answerlist = [];
+    
+    var createList = document.createElement("UL");
+    //var listOption = document.createElement("LI");
+    
+    //questionhtml.appendChild(createList);
+    
     var logging = '';
-    var answerLength = Answers.PracticeQuestionAnswers.length;
-    //console.log(answerLength);
+    var answerLength = answers.PracticeQuestionAnswers.length;
+    
+    
+    //console.log(answers);
+    
+    var num = 0;
     
     for (var i = 0; i < answerLength; i++)
         {
-            var answerNum = Answers.PracticeQuestionAnswers[i].id;
+            answerNumber = answers.PracticeQuestionAnswers[i].id;
             //console.log(answerNum);
-            logging = '<li> <p name="answer' + answerNum+ '" id="'+ qi + '' + answerNum + '"> ' + answerNum + ": " + Answers.PracticeQuestionAnswers[i].correctAnswer + ' ';
             
-            answerunordered += logging;
+            num++;
             
-            answerList.push (
-                answerunordered
-            );
+            var listOption = document.createElement("LI");
+            var para = document.createElement("P");
+            var idatt = document.createAttribute("id");
+            idatt.value = "answer"+answerNumber;
             
+            var nameatt = document.createAttribute("name");
+            nameatt.value = "answer"+answerNumber;
+            
+            para.setAttributeNode(idatt);
+            para.setAttributeNode(nameatt);
+            
+            var answer = num + ': ' + answers.PracticeQuestionAnswers[i].correctAnswer;
+            
+            var answerelement = document.createTextNode(answer);
+            
+            para.appendChild(answerelement);
+            listOption.appendChild(para);
+            createList.appendChild(listOption);
+            
+            //answerunordered += logging;
+            //console.log(answers.PracticeQuestionAnswers[i].correctAnswer); 
         }
-    console.log(answerList);
-    
+    //questionhtml.innerHTML = answerunordered + logging;
+    questionhtml.appendChild(createList);
+    //console.log(answerlist);
 }
 
 function adminQuizStart()
@@ -300,12 +326,8 @@ function adminQuizStart()
     var adminQuiz = document.getElementById("currentQuiz");
     
     var questions = [];
-    var answer = '';
-    
+
     var questionLength = myQuestions.PracticeQuestions.length;
-    
-    //console.log(questionLength);
-    //console.log(myQuestions);
     
     //inserts the questions from the lambda
     
@@ -314,10 +336,8 @@ function adminQuizStart()
             var questionID = myQuestions.PracticeQuestions[i].id;
             
             //get answers
-            getAnswers(questionID);
-            
-           
-            
+            myAnswers = getAnswers(questionID);
+                
             var deletebutton = '<input type="button" class="btns" id="delete"  name="btnsdele" onClick="deleteQuestion('+i+')" value="Delete"/>';
             
             var editbutton = '<input type="button" class="btns" id="edit" onClick="editQuestion('+i+')" value="Edit"/>';
@@ -327,12 +347,9 @@ function adminQuizStart()
             var question = '<p>'+(myQuestions.PracticeQuestions[i].question);
             
             questions.push(
-                '<div id="'+questionID+'">' + ' ' + deletebutton + ' ' + editbutton + ' ' + header + ' ' + question + '' +  answerList[i] + '</div>');
-            
-        }
-    
-    adminQuiz.innerHTML = questions.join('');
-    
+                '<div id="'+questionID+'">' + ' ' + deletebutton + ' ' + editbutton + ' ' + header + ' ' + question +  '</div>');
+            adminQuiz.innerHTML = questions.join('');
+        }    
 }
 
 function submitNewQuestion() {
