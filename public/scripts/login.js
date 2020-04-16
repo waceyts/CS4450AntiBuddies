@@ -206,12 +206,27 @@ function addUser() {
 ////////////////////////
 ///////////////////////
 
+
+function startAdminQuiz() {
+    //TODO
+    //add a lambda function that returns all the quizzes relative to each admin's courses that they are allowed to edit and review.
+    //that should be placed here
+    
+    //var quizList = '<button onclick="getPracticeQuestions()" id="get">Immunhematology--Beginner</button>';
+    //var node = document.getElementById("adminquiz");
+    //node.appendChild(quizList);
+    
+    
+}
+
+
 function getPracticeQuestions() {
 
   //var myQuestions = [ {} ];
     var difficulty = "1";
     var courseID = "1";
-
+    
+    document.getElementById("get").style.visibility = "hidden";
 
   // create JSON object for loginParams
   var questionParams = {
@@ -343,7 +358,7 @@ function adminQuizStart()
             //get answers
             myAnswers = getAnswers(questionID);
                 
-            var deletebutton = '<input type="button" class="btns" id="delete"  name="btnsdele" onClick="deleteQuestion('+i+')" value="Delete"/>';
+            var deletebutton = '<input type="button" class="btns" id="delete"  name="btnsdele" onClick="deleteQuestion('+questionID+')" value="Delete"/>';
             
             var editbutton = '<input type="button" class="btns" id="edit" onClick="editQuestion('+i+')" value="Edit"/>';
             
@@ -525,7 +540,7 @@ function editQuestion()
     
   }
   
-function deleteQuestion()
+function deleteQuestion(questionID)
 {
 
   // create JSON object for questionParams
@@ -533,14 +548,14 @@ function deleteQuestion()
     FunctionName : "deletePracticeQuestion",
     InvocationType : "RequestResponse",
     LogType : "None",
-    Payload : '{"questionID":"'+String("37")+'"}',
+    Payload : '{"questionID":"'+questionID+'"}',
   };
 
   lambda.invoke(questionParams, function(error, data) {
     if (error) {
       prompt(error, error.stack);
     } else {
-
+        console.log("question " + questionID + " deleted");
       //myQuestions = JSON.parse(data.Payload);
         //console.log(myQuestions);
 
