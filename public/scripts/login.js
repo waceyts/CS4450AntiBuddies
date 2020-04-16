@@ -24,14 +24,15 @@ var newUserResponse;
 var isLoading;
 var passToStore;
 
+//lambda response for the quiz questions
 var myQuestions = [ {} ];
 
 
 
-/*  USER INFORMATION   
-/////////////////////
-/////////////////////
-/////////////////////
+/*  USER LOGIN INFORMATION   
+//////////////////////////
+//////////////////////////
+//////////////////////////
 */
 
 
@@ -212,14 +213,11 @@ function startAdminQuiz() {
     //add a lambda function that returns all the quizzes relative to each admin's courses that they are allowed to edit and review.
     //that should be placed here
     
-    //var quizList = '<button onclick="getPracticeQuestions()" id="get">Immunhematology--Beginner</button>';
-    //var node = document.getElementById("adminquiz");
-    //node.appendChild(quizList);
     
     
 }
 
-
+//gets the questions from aws per quiz
 function getPracticeQuestions() {
 
   //var myQuestions = [ {} ];
@@ -251,6 +249,7 @@ function getPracticeQuestions() {
 
 }
 
+//gets the answers from aws per question
 function getAnswers(questionID) {
     
     var Answers = [{}];
@@ -284,7 +283,7 @@ function getAnswers(questionID) {
     
 }
 
-//LEFT OFF HERE
+//places the answers per question into the admin quiz
 function placeAnswers(answers, qi)
 {
     var questionhtml = document.getElementById(qi);
@@ -328,15 +327,14 @@ function placeAnswers(answers, qi)
             para.appendChild(answerelement);
             listOption.appendChild(para);
             createList.appendChild(listOption);
-            
-            //answerunordered += logging;
-            //console.log(answers.PracticeQuestionAnswers[i].correctAnswer); 
         }
-    //questionhtml.innerHTML = answerunordered + logging;
+    
+    
     questionhtml.appendChild(createList);
-    //console.log(answerlist);
+    
 }
 
+//puts the answers from aws into the adminquiz html
 function adminQuizStart()
 {
     var adminQuiz = document.getElementById("currentQuiz");
@@ -369,9 +367,11 @@ function adminQuizStart()
             questions.push(
                 '<div id="'+questionID+'">' + ' ' + deletebutton + ' ' + editbutton + ' ' + header + ' ' + question +  '</div>');
             adminQuiz.innerHTML = questions.join('');
-        }    
+        }  
+    console.log(user);
 }
 
+//submits a new question per quiz number
 function submitNewQuestion() {
   var course = document.getElementById("selected_course_quiz").selectedIndex;
   console.log("Course: " + course);
@@ -456,6 +456,7 @@ function submitNewQuestion() {
   });
 }
 
+//sets up the add question quiz page
 function getQuizPage() {
     
 }
