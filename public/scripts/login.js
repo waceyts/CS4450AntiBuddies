@@ -510,7 +510,7 @@ function addQuestion(){
 	questions.push('<textarea id="notes_quiz" name="form_text" rows="10" cols="40" placeholder="Enter additional notes...(ex. Correct answer is B, can be found on page: )"></textarea>');				
 	questions.push('</div>');
     questions.push('</div class="subbtn" id="subButt">');
-    questions.push('<button onclick="submitNewQuestion()" id="subit">Submit</button></div>');
+    questions.push('<button onclick="submitNewQuestion()" id="submit">Submit</button></div>');
 	questions.push('</form>');		
 	questions.push('</div>');	
 	
