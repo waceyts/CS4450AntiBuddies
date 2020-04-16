@@ -606,7 +606,7 @@ function newPanel(){
   window.location.href="admin-grid.html";
 }
 
-function newQuestion() {
+function editQuestion() {
   window.location.href="admin-quiz.html";
 }
 
@@ -626,8 +626,8 @@ function advanced(){
   window.location.href="panel.html";
 }
 
-function quiz(){
-  window.location.href="quiz.html";
+function newquiz(){
+  window.location.href="admin-quiz-add.html";
 }
 
 
