@@ -330,6 +330,10 @@ function adminQuizStart()
 
     var questionLength = myQuestions.PracticeQuestions.length;
     
+    var addQuestionbtn = '<input type="image" id="addQuestionButton" src="Picture1.png" onclick="addQuestion()" />';
+    
+    questions.push(addQuestionbtn);
+    
     //inserts the questions from the lambda
     
     for (var i = 0; i < questionLength; i++)
@@ -430,7 +434,9 @@ function submitNewQuestion() {
       console.log("newQuestion: "+ data.Payload);
       newUserResponse = JSON.parse(data.Payload);
       alert("Your question was successfully created!");
-      window.location.href="admin.html";
+      //window.location.href="admin.html";
+        
+        getPracticeQuestions();
     }
   });
 }
@@ -487,7 +493,9 @@ function addQuestion(){
 	questions.push('</div>');			
 	questions.push('<div>');			
 	questions.push('<textarea id="notes_quiz" name="form_text" rows="10" cols="40" placeholder="Enter additional notes...(ex. Correct answer is B, can be found on page: )"></textarea>');				
-	questions.push('</div>');			
+	questions.push('</div>');
+    questions.push('</div class="subbtn" id="subButt">');
+    questions.push('<button onclick="submitNewQuestion()" id="subit">Submit</button></div>');
 	questions.push('</form>');		
 	questions.push('</div>');	
 	
