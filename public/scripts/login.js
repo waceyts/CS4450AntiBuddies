@@ -365,7 +365,7 @@ function adminQuizStart()
             var question = '<p>'+(myQuestions.PracticeQuestions[i].question);
             
             questions.push(
-                '<div id="'+questionID+'">' + ' ' + deletebutton + ' ' + editbutton + ' ' + header + ' ' + question +  '</div>');
+                '<div class="row"><div>' + editbutton + ' ' + deletebutton + '</div>' + ' ' + '<div id="'+questionID+'">' + ' ' + header +  '</div></div>');
             adminQuiz.innerHTML = questions.join('');
         }  
     console.log(user);

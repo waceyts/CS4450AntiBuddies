@@ -82,6 +82,12 @@ label {
 .newQuestion_div{
 	
 }
+.btn-group{
+	display: block;
+}
+#btn-group{
+	display: block;
+}
 
 /*-----Input areas-----*/
 input[type='radio'] { 
@@ -186,6 +192,7 @@ button:hover {
 	text-align: center;
 }
 #edit{
+	height: 70px;
     font-size: 20px;
     background: #421663;
     color: #fff;
@@ -193,7 +200,7 @@ button:hover {
     border-radius: 3px;
     cursor: pointer;
     margin-bottom: 20px;
-    display: inline-block;
+    display: block;
     background: #421663;
     color: #fff;
     border-radius: 5px;
@@ -208,6 +215,7 @@ button:hover {
 	cursor: pointer;
 }
 #delete{
+	height: 70px;
     font-size: 20px;
     background: #421663;
     color: #fff;
@@ -215,7 +223,7 @@ button:hover {
     border-radius: 3px;
     cursor: pointer;
     margin-bottom: 20px;
-    display: inline-block;
+    display: block;
     background: #421663;
     color: #fff;
     border-radius: 5px;
