@@ -455,6 +455,10 @@ function submitNewQuestion() {
     }
   });
 }
+
+function getQuizPage() {
+    
+}
 ////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////
 
@@ -556,10 +560,7 @@ function deleteQuestion(questionID)
       prompt(error, error.stack);
     } else {
         console.log("question " + questionID + " deleted");
-      //myQuestions = JSON.parse(data.Payload);
-        //console.log(myQuestions);
-
-
+        getPracticeQuestions();
     }
   });
 }
