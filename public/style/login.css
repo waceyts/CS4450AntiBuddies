@@ -63,6 +63,74 @@ p {
 	float: right;
 	width: 47.5%;
 }
+.loggedin-div {
+  height: 200px;
+}
+#create_user {
+	font-size: 12px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+#departments {
+	padding: 5vh;
+}
+.immunhematology {
+	background-color: transparent !important;
+	border: 1px solid #43964D;
+	padding: 50px !important;
+	width: 250px !important;
+}
+.chemistry {
+	background-color: transparent !important;
+	border: 1px solid #421663;
+	padding: 50px !important;
+	width: 250px !important;
+}
+.microbiology {
+	background-color: transparent !important;
+	border: 1px solid #DFA801;
+	padding: 50px !important;
+	width: 250px !important;
+}
+.hematology {
+	background-color: transparent !important;
+	border: 1px solid #617ef2;
+	padding: 50px !important;
+	width: 250px !important;
+}
+.immunology {
+	background-color: transparent !important;
+	border: 1px solid #D0BFED;
+	padding: 50px !important;
+	width: 250px !important;
+}
+.urinalysis {
+	background-color: transparent !important;
+	border: 1px solid #f70f83;
+	padding: 50px !important;
+	width: 250px !important;
+}
+.panel {
+	background-color: transparent !important;
+	border: 1px solid #43964D;
+	padding: 30px !important;
+}
+.panelex {
+	background-color: transparent !important;
+	border: 1px solid #43964D;
+	padding: 30px !important;
+}
+.pq {
+	background-color: transparent !important;
+	border: 1px solid #43964D;
+	padding: 30px !important;
+}
+.panel_options {
+	padding: 20px;
+}
+#immunhematology {
+	padding: 5vh;
+}
 
 /*Buttons*/
 button {
@@ -110,7 +178,7 @@ input, button {
 }
 
 
-
+/*-----Links-----*/
 a {
   text-decoration: none;
   color: white;
@@ -118,29 +186,11 @@ a {
 a:visited{
 	color: white;
 }
-
-
-
-
-
-
-
-
-
-
 .main-div, .loggedin-div, .newloggedin-div {
   width: 30%;
   margin: 0px auto;
   padding: 20px;
 }
-
-.loggedin-div {
-  height: 200px;
-}
-
-
-
-
 
 .main-div input, .modal-dialog input {
   display: block;
@@ -163,15 +213,9 @@ a:visited{
 .modal-content {
   background: #282828;
 }
-
-
-
-
-
 .nav{
 	padding: 10px 0px;
 }
-
 .main-menu>li{
 	display: inline-block;
 	width: 150px;
@@ -184,12 +228,10 @@ a:visited{
 	transition: .4s;
 	cursor: pointer;
 	box-sizing: border-box;
-}
-         
+}         
 .main-menu li:hover .sub-menu{
 	display: block;
-}
- 
+} 
 .sub-menu{
 	display: none;
 	position: absolute;
@@ -203,7 +245,6 @@ a:visited{
 	border: 5px solid white;
 	box-shadow: 1px 1px 1px grey;
 }
-
 .sub-menu:before{
 	content:"";
 	width: 0px;
@@ -214,7 +255,6 @@ a:visited{
 	position: absolute;
 	margin:-30px 0px 0px 60px;
 }
-
 .sub-menu li{
 	list-style-type: none;
 	padding: 10px;
@@ -222,99 +262,8 @@ a:visited{
 	font-size: 20px;
 	background: #421663;
 }
-
 .main-menu>li:hover, .sub-menu>li:hover{
 	background: #a46ef0;
-}
-
-#create_user {
-	font-size: 12px;
-	padding-top: 15px;
-	padding-bottom: 15px;
-}
-
-.user_div_button {
-	margin-top: 20px;
-	width: auto;
-	height: auto;
-}
-
-
-
-
-
-#departments {
-	padding: 5vh;
-}
-
-
-
-.immunhematology {
-	background-color: transparent !important;
-	border: 1px solid #43964D;
-	padding: 50px !important;
-	width: 250px !important;
-}
-
-.chemistry {
-	background-color: transparent !important;
-	border: 1px solid #421663;
-	padding: 50px !important;
-	width: 250px !important;
-}
-
-.microbiology {
-	background-color: transparent !important;
-	border: 1px solid #DFA801;
-	padding: 50px !important;
-	width: 250px !important;
-}
-
-.hematology {
-	background-color: transparent !important;
-	border: 1px solid #617ef2;
-	padding: 50px !important;
-	width: 250px !important;
-}
-
-.immunology {
-	background-color: transparent !important;
-	border: 1px solid #D0BFED;
-	padding: 50px !important;
-	width: 250px !important;
-}
-
-.urinalysis {
-	background-color: transparent !important;
-	border: 1px solid #f70f83;
-	padding: 50px !important;
-	width: 250px !important;
-}
-
-.panel {
-	background-color: transparent !important;
-	border: 1px solid #43964D;
-	padding: 30px !important;
-}
-
-.panelex {
-	background-color: transparent !important;
-	border: 1px solid #43964D;
-	padding: 30px !important;
-}
-
-.pq {
-	background-color: transparent !important;
-	border: 1px solid #43964D;
-	padding: 30px !important;
-}
-
-.panel_options {
-	padding: 20px;
-}
-
-#immunhematology {
-	padding: 5vh;
 }
 
 
