@@ -33,7 +33,7 @@ type response struct {
 	PracticeQuestion string `json:"RESPONSE"`
 }
 
-// Opens a Database connection and inserts a practiceQuestion. Returns a string containing the new PracticeQuestion's ID
+// Opens a Database connection and update a practiceQuestion. Returns a string containing an error or success message
 func CreateEditQuestionInDB(practiceQuestion request) string {
 
 	db, err := sql.Open("mssql", dbconnection)
@@ -45,13 +45,13 @@ func CreateEditQuestionInDB(practiceQuestion request) string {
 
 	db.Query("USE antibuddies; GO")
 
-	//Execute db stored procedure to add a new practiceQuestion
+	//Execute SQL script to update a practice question
 	_, err = db.Query(`USE antibuddies; UPDATE PracticeQuestions SET question = '` + strings.Replace(practiceQuestion.Questioncontext, "'", `''`, -1) + `', atype = '` + practiceQuestion.CorrectAnswer + `' , aresponse =  '` + practiceQuestion.AnswerDesc + `' WHERE question_id = '` + practiceQuestion.QuestionID + `' ;`) // `' WHERE citem_id = '` + practiceQuestion.ItemID + `' AND  question_id = '` + practiceQuestion.QuestionID + `' ;`)
 	if err != nil {
 		return "Error in editing question: " + err.Error()
 	}
 
-	//answers
+	//Execute SQL script to update answers
 	_, err = db.Query(`USE antibuddies; 
     UPDATE PQAnswers SET qanswer='` + strings.Replace(practiceQuestion.Answer1, "'", `''`, -1) + `' WHERE question_id='` + practiceQuestion.QuestionID + `' AND anum=0 ;
     UPDATE PQAnswers SET qanswer='` + strings.Replace(practiceQuestion.Answer2, "'", `''`, -1) + `' WHERE question_id='` + practiceQuestion.QuestionID + `' AND anum=1;
@@ -61,7 +61,7 @@ func CreateEditQuestionInDB(practiceQuestion request) string {
 		return "Error in editing the answer1 part of edit question" + err.Error()
 	}
 
-	// Return new practiceQuestion's ID
+	// Return a successful completion message
 	return "Complete"
 }
 

@@ -14,7 +14,7 @@ const dbconnection = "server=antibuddies.co362eqfasab.us-east-2.rds.amazonaws.co
 
 // This function requires no request parameters, but the template requires that this struct exist
 type request struct {
-	QuestionID string `json:"questionID"`
+	QuestionID string `json:"questionID"` // ID of the question to delete
 }
 
 // Response object property and associated JSON key
@@ -22,7 +22,7 @@ type response struct {
 	DeleteResponse string `json:"response"`
 }
 
-// Opens a Database connection and inserts a practiceQuestion. Returns a string containing the new PracticeQuestion's ID
+// Opens a Database connection and deletes a practiceQuestion. Returns a string containing a success or error message
 func DeletePracticeQuestionFromDB(practiceQuestion request) string {
 
 	db, err := sql.Open("mssql", dbconnection)
@@ -34,7 +34,7 @@ func DeletePracticeQuestionFromDB(practiceQuestion request) string {
 
 	db.Query("USE antibuddies; GO")
 
-	// Execute db stored procedure to add a new practiceQuestion
+	// Execute SQL script to delete a practiceQuestion and dependent records
 	_, err = db.Query(`USE antibuddies;
         BEGIN TRANSACTION;
             DELETE FROM PQAnswers			WHERE question_id = '` + practiceQuestion.QuestionID + `';

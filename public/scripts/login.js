@@ -566,9 +566,6 @@ function deleteQuestion(questionID)
   });
 }
 
-//to test if calling the function actually activates Lambda
-//deleteQuestion();
-
 /*  LOCATIONS    */
 ///////////////////
 ///////////////////
