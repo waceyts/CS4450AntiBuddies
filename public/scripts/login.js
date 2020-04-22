@@ -220,7 +220,10 @@ function startAdminQuiz() {
 //gets the questions from aws per quiz
 function getPracticeQuestions() {
 
-  //var myQuestions = [ {} ];
+  
+    //This is set up for only one quiz but can be set up for the others as well
+    //TODO create buttons for each different quiz that's been created, get the courseID for each admin and the difficultly of each quiz to pull different quizzes.
+    
     var difficulty = "1";
     var courseID = "1";
     
@@ -242,6 +245,8 @@ function getPracticeQuestions() {
      
       myQuestions = JSON.parse(data.Payload);
         //console.log(myQuestions);
+        
+
         adminQuizStart();
        
     }
@@ -353,6 +358,8 @@ function adminQuizStart()
         {
             var questionID = myQuestions.PracticeQuestions[i].id;
             
+            console.log(questions);
+            
             //get answers
             myAnswers = getAnswers(questionID);
                 
@@ -365,10 +372,10 @@ function adminQuizStart()
             var question = '<p>'+(myQuestions.PracticeQuestions[i].question);
             
             questions.push(
-                '<div class="row"><div>' + editbutton + ' ' + deletebutton + '</div>' + ' ' + '<div id="'+questionID+'">' + ' ' + header +  '</div></div>');
+                '<div class="row"><div>' + editbutton + ' ' + deletebutton + '</div>' + ' ' + '<div id="'+questionID+'">' + ' ' + header + question + '</div></div>');
             adminQuiz.innerHTML = questions.join('');
         }  
-    console.log(user);
+    
 }
 
 //submits a new question per quiz number
@@ -527,6 +534,8 @@ function addQuestion(){
 	//document.getElementById("newQuestion_div").style.display = "block";	
 }
 
+
+//directs login for students and admins
 function directAfterLogin(user) {
 
   isLoggedIn = true;
@@ -538,6 +547,8 @@ function directAfterLogin(user) {
   }
 
 }
+
+
 
 
 function editQuestion()
@@ -565,6 +576,20 @@ function deleteQuestion(questionID)
     }
   });
 }
+
+
+/* Student Quiz Section */
+//////////////////////////
+//////////////////////////
+//////////////////////////
+
+
+
+
+
+
+
+
 
 /*  LOCATIONS    */
 ///////////////////
