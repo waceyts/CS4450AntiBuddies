@@ -343,7 +343,7 @@ function adminQuizStart()
 
     var questionLength = myQuestions.PracticeQuestions.length;
     
-    var addQuestionbtn = '<input type="image" id="addQuestionButton" src="Picture1.png" onclick="addQuestion()" />';
+    var addQuestionbtn = '<input type="image" id="addQuestionButton" src="AddQuestButton.png" onclick="addQuestion()" width="250" Height="100"/>';
     
     questions.push(addQuestionbtn);
     
