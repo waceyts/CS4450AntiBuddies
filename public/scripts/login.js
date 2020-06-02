@@ -52,7 +52,7 @@ var myQuestions = [ {} ];
 
       } else {
       // No user is signed in.
-        document.getElementById("user_div").style.display = "none";
+        //document.getElementById("user_div").style.display = "none";
       }
 
   }
@@ -244,7 +244,8 @@ function getPracticeQuestions() {
     } else {
      
       myQuestions = JSON.parse(data.Payload);
-        //console.log(myQuestions);
+        console.log(myQuestions);
+        
         
 
         adminQuizStart();
@@ -303,7 +304,7 @@ function placeAnswers(answers, qi)
     var answerLength = answers.PracticeQuestionAnswers.length;
     
     
-    //console.log(answers);
+    console.log(answers);
     
     var num = 0;
     

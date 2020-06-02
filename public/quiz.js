@@ -11,8 +11,8 @@
     loadQuestions();
     
     displayQuestions();
-    editQuizStart();
-    
+    adminQuizStart();
+    console.log(questions);
     //Click handler for 'submit' button
     $('#submit').on('click', function(e) {
         e.preventDefault();
@@ -37,7 +37,9 @@
         correctAnswer: 'b',
         explanations: "Correct response is B. Anti-Ch and anti-Rg can be neutralized by pooled human plasma because the Ch and Rg antigens reside on complement protein C4. Neutralization studies with pooled plasma can help confirm the antibody reactivity in a patient’s sample. (Source Harmening, 7th Edition, Chapter...)"
       }, {
-        question: "The following test results are noted for a unit of blood labeled group A, Rh-negative: <br> Cells tested with: <br> anti-A anti-B anti-D <br> 4+ 0 3+ <br>  What should be done next?",
+        // question: "The following test results are noted for a unit of blood labeled group A, Rh-negative: <br> Cells tested with: <br> anti-A anti-B anti-D <br> 4+ 0 3+ <br>  What should be done next?",
+        question: "The following test results are noted for a unit of blood labeled group A, Rh-negative: \n Cells tested with: \n anti-A anti-B anti-D <br> 4+ 0 3+ <br>  What should be done next?",
+
         choices: {
             a: 'transfuse as a group A, Rh-negative', 
             b: 'transfuse as a group A, Rh-positive', 
@@ -46,6 +48,7 @@
         correctAnswer: 'c',
         explanations: "Correct response is C. A serological test to confirm the ABO on all RBC units and Rh on units labeled as Rh-negative must be performed prior to transfusion. Any errors in labeling must be reported to the collecting facility. (Source AABB Standards, Section...)"
       }]
+    questions = getStudentQuestions();
     }
     
     
@@ -53,7 +56,7 @@
     // the answer selections
     function createQuestionElement(index) 
     {
-        var qElement = $('<div>', {
+        var qElement = $('<div class="row">', {
           id: 'question'+index
         });
 
@@ -281,3 +284,108 @@ function deleteQuestion(index)
     
 } )();
 
+function getStudentQuestions() {
+
+  
+    //This is set up for only one quiz but can be set up for the others as well
+    //TODO create buttons for each different quiz that's been created, get the courseID for each admin and the difficultly of each quiz to pull different quizzes.
+    
+    var difficulty = "1";
+    var courseID = "1";
+    
+    //document.getElementById("get").style.visibility = "hidden";
+
+  // create JSON object for loginParams
+  var questionParams = {
+    FunctionName : "getPracticeQuestions",
+    InvocationType : "RequestResponse",
+    LogType : "None",
+    Payload : '{"courseID":"'+String(courseID)+
+              '","difficulty":"'+String(difficulty)+'"}',
+  };
+
+  lambda.invoke(questionParams, function(error, data) {
+    if (error) {
+      prompt(error, error.stack);
+    } else {
+     
+      myQuestions = JSON.parse(data.Payload);
+        console.log(myQuestions);
+        
+        
+
+        studentQuizStart();
+       
+    }
+  });
+
+}
+
+//gets the answers from aws per question
+function getStudentAnswers(questionID) {
+    
+    var Answers = [{}];
+    var listAnswers = [];
+    var check;
+
+  // create JSON object for loginParams
+  var questionParams = {
+    FunctionName : "getPracticeQuestionAnswers",
+    InvocationType : "RequestResponse",
+    LogType : "None",
+    Payload : '{"questionID":"'+String(questionID)+'"}',
+  };
+
+  lambda.invoke(questionParams, function(error, data) {
+    if (error) {
+      prompt(error, error.stack);
+    } else {
+     
+        Answers = JSON.parse(data.Payload);
+        
+        placeAnswers(Answers, questionID);
+        
+        var answerLength = Answers.PracticeQuestionAnswers.length;
+    }
+  });
+}
+
+function studentQuizStart()
+{
+    var studentQuiz = document.getElementById("currentQuiz");
+    
+    var questions = [];
+
+    var questionLength = myQuestions.PracticeQuestions.length;
+    
+    var addQuestionbtn = '<input type="image" id="addQuestionButton" src="AddQuestButton.png" onclick="addQuestion()" width="250" Height="100"/>';
+    
+    questions.push(addQuestionbtn);
+    
+    //inserts the questions from the lambda
+    
+    for (var i = 0; i < questionLength; i++)
+        {
+            var questionID = myQuestions.PracticeQuestions[i].id;
+            
+            console.log(questions);
+            
+            //get answers
+            myAnswers = getAnswers(questionID);
+                
+            //var deletebutton = '<input type="button" class="btns" id="delete"  name="btnsdele" onClick="deleteQuestion('+questionID+')" value="Delete"/>';
+            
+            //var editbutton = '<input type="button" class="btns" id="edit" onClick="editQuestion('+i+')" value="Edit"/>';
+            
+            var header = '<h2>Question ' + (i+1) + ': </h2>';
+            
+            var question = '<p>'+(myQuestions.PracticeQuestions[i].question);
+            
+            questions.push(
+                '<div class="row"><div>' + '</div>' + ' ' + '<div id="'+questionID+'">' + ' ' + header + question + '</div></div>');
+            studentQuiz.innerHTML = questions.join('');
+
+            console.log(myQuestions);
+        }  
+    
+}
