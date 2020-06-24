@@ -43,9 +43,9 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
         for(var i=0; i<questions.length; i++){
             answers = [];
             for(letter in questions[i].answers){
-                answers.push('<label class="radio row">' + '<input type="radio" name="question' + i + '" value="'+letter+'">' + letter + ': ' + questions[i].answers[letter] + '</label>');
+                answers.push('<label class="radio row">' + '<input type="radio" name="question' + i + '" value="'+letter+'">' + letter.toUpperCase() + ': ' + questions[i].answers[letter] + '</label>');
             }
-            output.push('<div class="card>"><div class="question card-header">' + questions[i].question + '</div>' + '<div class="answers card-text">' + answers.join('') + '</div></div>');
+            output.push('<div class="card>"><div class="question card-header">' + questions[i].question + '</div>' + '<div class="answers card-text">' + answers.join('') + '</div> <div id="explanation' + i + '" hidden>' + questions[i].displayAnswer + '</div></div><hr>');
             // output.push('<div class="question row ">' + questions[i].question  + '<div class="answers">' + answers.join('') + '</div></div>');
         }
         quizContainer.innerHTML = output.join('');
@@ -63,16 +63,20 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton){
             if(userAnswer===questions[i].correctAnswer){
                 numCorrect++;
                 answerContainers[i].style.color = 'lightgreen';
+                //console.log(i + "is correct")
             }
 
             else{
                 answerContainers[i].style.color = 'red';
-                if (userAnswer===questions[1-1].correctAnswer) {
-                window.alert("Correct response is B. Anti-Ch and anti-Rg can be neutralized by pooled human plasma because the Ch and Rg antigens reside on complement protein C4. Neutralization studies with pooled plasma can help confirm the antibody reactivity in a patient’s sample. (Source Harmening, 7th Edition, Chapter...)");
-                }
-                if (userAnswer===questions[2-1].correctAnswer) {
-                    window.alert("Correct response is C. A serological test to confirm the ABO on all RBC units and Rh on units labeled as Rh-negative must be performed prior to transfusion. Any errors in labeling must be reported to the collecting facility. (Source AABB Standards, Section...)");
-                }
+                //if (userAnswer!==questions[i].correctAnswer) {
+                document.getElementById('explanation'+i).hidden = false;
+                    //console.log(questions[i].displayAnswer);
+                //}
+                // if (userAnswer!==questions[i].correctAnswer) {
+                //     //window.alert("Correct response is C. A serological test to confirm the ABO on all RBC units and Rh on units labeled as Rh-negative must be performed prior to transfusion. Any errors in labeling must be reported to the collecting facility. (Source AABB Standards, Section...)");
+                //     document.getElementById('explanation'+i).hidden = false;
+                //     //console.log(questions[i].displayAnswer);
+                // }
             }
         }
         resultsContainer.innerHTML = numCorrect + ' out of ' + questions.length;
